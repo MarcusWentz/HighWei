@@ -7,8 +7,6 @@ Next steps:
 
 Backend:
 
--Adatper.js data in contract
-
 -Test ultrasonics with Node.js/Web3 communication
 
 -Chainlink Keepers feature if you don't want to use ultrasonics [risk, variance in travel time]
