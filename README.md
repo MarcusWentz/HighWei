@@ -13,3 +13,4 @@ Backend:
 
 Frontend: 
 -Single page, lightweight site to access with Metamask
+-Host page using IPFS/Filecoin on Fleek
