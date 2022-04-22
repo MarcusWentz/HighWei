@@ -11,7 +11,7 @@ contract HighWei is ChainlinkClient {
 
   uint public state; //Storage slot 0x00, 32 bytes.
   uint public timeOpened; //Storage slot 0x01, 32 bytes.
-  uint public tollBridgeVerrazanoEZpassCarPennies; //Storage slot 0x02, 32 bytes.
+  uint public tollPennies; //Storage slot 0x02, 32 bytes. MTA toll for Verrazano Bridge (Truck: Two Axle) in Pennies.
   address public Owner; // Storage slot 0x03, 20 bytes.
 
     constructor() {
@@ -27,11 +27,11 @@ contract HighWei is ChainlinkClient {
 
      function feeInPenniesUSDinMatic() public view returns (uint) {
         (uint80 roundID, int price, uint startedAt, uint timeStamp, uint80 answeredInRound) = priceFeed.latestRoundData();
-        return (tollBridgeVerrazanoEZpassCarPennies*uint( (10**24) / price ))/(100);
+        return (tollPennies*uint( (10**24) / price ))/(100);
     }
 
     function openServoGate() public payable {
-        require(feeInPenniesUSDinMatic() > 0 && msg.value == feeInPenniesUSDinMatic());
+        require(msg.value == feeInPenniesUSDinMatic() && msg.value != 0);
         state = 1;
         timeOpened = block.timestamp;
     }
@@ -46,12 +46,12 @@ contract HighWei is ChainlinkClient {
     Chainlink.Request memory request;
     request = buildChainlinkRequest("0fd94256e7e146188a1a7e0c0a54588a", address(this), this.fulfillUint.selector);
     request.add("type", "uint");
-    request.add("js", "return 999");
+    request.add("js", "const puppeteer = require('puppeteer'); const browser = await puppeteer.launch(); const page = await browser.newPage(); await page.goto('https://new.mta.info/fares-and-tolls/bridges-and-tunnels/tolls-by-vehicle/trucks', { waitUntil: 'networkidle2' }); const featureArticle = (await page.$x('/html/body/div[1]/div/div/section/div[4]/article/div/div/div/div/div/div/div/ul[1]/li[1]'))[0]; const text = await page.evaluate(el => { return el.textContent}, featureArticle); await browser.close(); console.log(text.slice(10,text.length)*100); return text.slice(10,text.length)*100; ");
     return sendChainlinkRequestTo(0xAC442d76EeC61518D2112eeB67620Cbf05D6f746, request, 1000000000000000000);
   }
 
   function fulfillUint(bytes32 _requestId, uint reply) public recordChainlinkFulfillment(_requestId) {
-    tollBridgeVerrazanoEZpassCarPennies = reply;
+    tollPennies = reply;
   }
 
 }
