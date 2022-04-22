@@ -11,6 +11,8 @@ Backend:
 
 -Chainlink Keepers feature if you don't want to use ultrasonics [risk, variance in travel time]
 
+-Save gas with packing storage slots
+
 Frontend: 
 
 -Single page, lightweight site to access with Metamask
