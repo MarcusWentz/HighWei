@@ -9,7 +9,7 @@ Next steps:
 
 Backend:
 
--Test ultrasonics with Node.js/Web3 communication
+-Ultrasonics reading sensor data in python https://tutorials-raspberrypi.com/raspberry-pi-ultrasonic-sensor-hc-sr04/ but not with Node.js/Web3 communication https://www.npmjs.com/package/raspi-hc-sr04 . Might consider sending Tx in web3.py for this part if this continues.
 
 -Save gas with packing storage slots
 
@@ -18,3 +18,13 @@ Frontend:
 -Single page, lightweight site to access with Metamask
 
 -Host page using IPFS/Filecoin on Fleek
+
+Hardware: (wiring diagram coming soon)
+
+-Raspberry Pi 4
+
+-Ultrasonic sensor
+
+-Servo motor 
+
+-1k and 2k ohm resistor (voltage divider for ultrasonics)
