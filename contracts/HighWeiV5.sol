@@ -3,16 +3,18 @@ pragma solidity ^0.8.0;
 
 import "@chainlink/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol";
 import "@chainlink/contracts/src/v0.8/ChainlinkClient.sol";
+import "@chainlink/contracts/src/v0.8/KeeperCompatible.sol";
 
-contract HighWei is ChainlinkClient {
+contract HighWei is ChainlinkClient, KeeperCompatibleInterface {
 
   using Chainlink for Chainlink.Request;
   AggregatorV3Interface internal priceFeed;
 
-  uint public state; //Storage slot 0x00, 32 bytes.
+  uint public servoState; //Storage slot 0x00, 32 bytes.
   uint public timeOpened; //Storage slot 0x01, 32 bytes.
   uint public tollPennies; //Storage slot 0x02, 32 bytes. MTA toll for Verrazano Bridge (Truck: Two Axle) in Pennies.
-  address public Owner; // Storage slot 0x03, 20 bytes.
+  uint public sensorState; //Storage slot 0x03 . Keepers = 0, Ultrasonics = 1;
+  address public Owner; // Storage slot 0x04, 20 bytes.
 
     constructor() {
       Owner = msg.sender;
@@ -21,7 +23,7 @@ contract HighWei is ChainlinkClient {
     }
 
     modifier onlyOwner() {
-        require(msg.sender == Owner);
+        require(msg.sender == Owner, "ONLY_OWNER_FUNCTION.");
         _;
     }
 
@@ -31,14 +33,28 @@ contract HighWei is ChainlinkClient {
     }
 
     function openServoGate() public payable {
-        require(msg.value == feeInPenniesUSDinMatic() && msg.value != 0);
-        state = 1;
+        require(msg.value == feeInPenniesUSDinMatic() && msg.value != 0 , "MATCH_FEE_AND_FEE_NOT_ZERO_TO_OPEN.");
+        servoState = 1;
         timeOpened = block.timestamp;
     }
 
     function closeServoGate() public onlyOwner {
-        require(block.timestamp >= timeOpened + 15);
-        state = 0;
+        require(block.timestamp >= timeOpened + 15, "WAIT_15_SECONDS_BEFORE_CLOSING.");
+        servoState = 0;
+        timeOpened = 0;
+    }
+
+    function toggleUltrasonicsKeepers(uint updateSensorState) public onlyOwner {
+      require(updateSensorState < 2 && updateSensorState != sensorState, "INPUT_0_OR_1_AND_HAVE_NEW_VALUE."); 
+      sensorState = updateSensorState; 
+    }
+
+    function checkUpkeep(bytes calldata) external override returns (bool upkeepNeeded, bytes memory) {
+        upkeepNeeded = (block.timestamp >= (timeOpened + 15));
+    } 
+
+    function performUpkeep(bytes calldata) external override {
+        servoState = 0;
         timeOpened = 0;
     }
 
