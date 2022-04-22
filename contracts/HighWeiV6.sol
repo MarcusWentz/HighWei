@@ -29,7 +29,7 @@ contract HighWei is ChainlinkClient, KeeperCompatibleInterface {
 
      function feeInPenniesUSDinMatic() public view returns (uint) {
         (uint80 roundID, int price, uint startedAt, uint timeStamp, uint80 answeredInRound) = priceFeed.latestRoundData();
-        return (tollPennies*uint( (10**24) / price ))/(100);
+        return tollPennies*uint( (10**24) / price );
     }
 
     function openServoGate() public payable {
