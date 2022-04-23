@@ -9,7 +9,7 @@ Next steps:
 
 Backend:
 
--Ultrasonics reading sensor data in python https://tutorials-raspberrypi.com/raspberry-pi-ultrasonic-sensor-hc-sr04/ but not with Node.js/Web3 communication https://www.npmjs.com/package/raspi-hc-sr04 . Might consider sending Tx in web3.py for this part if this continues.
+-Ultrasonics reading sensor data in python https://tutorials-raspberrypi.com/raspberry-pi-ultrasonic-sensor-hc-sr04/ but not with Node.js/Web3 communication https://www.npmjs.com/package/raspi-hc-sr04 or https://www.npmjs.com/package/pigpio . Might consider sending Tx in web3.py for this part if this continues.
 
 -Save gas with packing storage slots
 
