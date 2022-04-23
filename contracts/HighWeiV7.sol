@@ -60,10 +60,10 @@ contract HighWei is ChainlinkClient, KeeperCompatibleInterface {
 
   function uintAdapterCall() public returns (bytes32 requestId) {
     Chainlink.Request memory request;
-    request = buildChainlinkRequest("0fd94256e7e146188a1a7e0c0a54588a", address(this), this.fulfillUint.selector);
+    request = buildChainlinkRequest("b54577060dbc4ea7b37225913c011821", address(this), this.fulfillUint.selector);
     request.add("type", "uint");
-    request.add("js", "const puppeteer = require('puppeteer'); const browser = await puppeteer.launch(); const page = await browser.newPage(); await page.goto('https://new.mta.info/fares-and-tolls/bridges-and-tunnels/tolls-by-vehicle/trucks', { waitUntil: 'networkidle2' }); const featureArticle = (await page.$x('/html/body/div[1]/div/div/section/div[4]/article/div/div/div/div/div/div/div/ul[1]/li[1]'))[0]; const text = await page.evaluate(el => { return el.textContent}, featureArticle); await browser.close(); console.log(text.slice(10,text.length)*100); return text.slice(10,text.length)*100; ");
-    return sendChainlinkRequestTo(0xAC442d76EeC61518D2112eeB67620Cbf05D6f746, request, 1000000000000000000);
+    request.add("js", "const puppeteer = require('puppeteer'); const browser = await puppeteer.launch(); const page = await browser.newPage(); await page.goto('https://new.mta.info/fares-and-tolls/bridges-and-tunnels/tolls-by-vehicle/trucks', { waitUntil: 'networkidle2' }); const featureArticle = (await page.$x('/html/body/div[1]/div/div/section/div[4]/article/div/div/div/div/div/div/div/ul[1]/li[1]'))[0]; const text = await page.evaluate(el => { return el.textContent}, featureArticle); await browser.close(); console.log(text.slice(10,text.length)*100); return BigInt(text.slice(10,text.length)*100); ");
+    return sendChainlinkRequestTo(0xe67382D1FC23E9B2C29de36810D5C8b2Ae021704, request, 1000000000000000000);
   }
 
   function fulfillUint(bytes32 _requestId, uint reply) public recordChainlinkFulfillment(_requestId) {
