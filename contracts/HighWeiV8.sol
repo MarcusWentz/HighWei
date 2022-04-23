@@ -10,10 +10,10 @@ contract HighWei is ChainlinkClient, KeeperCompatibleInterface {
   using Chainlink for Chainlink.Request;
   AggregatorV3Interface internal priceFeed;
 
-  uint public servoState; //Storage slot 0x00, 32 bytes.
-  uint public timeOpened; //Storage slot 0x01, 32 bytes.
-  uint public tollPennies; //Storage slot 0x02, 32 bytes. MTA toll for Verrazano Bridge (Truck: Two Axle) in Pennies.
-  address public Owner; // Storage slot 0x04, 20 bytes.
+  uint public timeOpened; //Storage slot 0x00, 32/32, 32 bytes bytes.
+  uint public tollPennies; //Storage slot 0x01, 32/32 bytes. MTA toll for Verrazano Bridge (Truck: Two Axle) in Pennies.
+  address public Owner; // Storage slot 0x02, 20/32 , 20 bytes.
+  uint96 public servoState; //Storage slot 0x02, 32/32 , 12 bytes.
 
     constructor() {
       Owner = msg.sender;
