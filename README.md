@@ -9,8 +9,7 @@ Next steps:
 
 Backend:
 
--Add bigger time delay o update handling data Tx instance for Python ultrasonic Tx instead of just copying and pasting from Metamask https://github.com/ethereum/web3.py/issues/685 or
-https://ethereum.stackexchange.com/questions/98307/valueerror-code-32000-message-already-known or https://ethereum.stackexchange.com/questions/12190/error-known-transaction
+-Servo motor either written in web3.js (having trouble reinstalling) or write in Python (see if you can subscribe without polling API calls with events like web3.js)
 
 Frontend: 
 
