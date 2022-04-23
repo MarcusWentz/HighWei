@@ -43,7 +43,7 @@ contract HighWei is ChainlinkClient, KeeperCompatibleInterface {
     }
 
     function checkUpkeep(bytes calldata) external override returns (bool upkeepNeeded, bytes memory) {
-        upkeepNeeded = (block.timestamp >= (timeOpened + 15));
+        upkeepNeeded = oneBlockPassedSinceOpened();
     } 
 
     function performUpkeep(bytes calldata) external override {
@@ -60,6 +60,10 @@ contract HighWei is ChainlinkClient, KeeperCompatibleInterface {
 
   function fulfillUint(bytes32 _requestId, uint reply) public recordChainlinkFulfillment(_requestId) {
     tollPennies = reply;
+  }
+
+  function oneBlockPassedSinceOpened() public view returns(bool) {
+    return (block.timestamp >= (timeOpened + 15));
   }
 
 }
