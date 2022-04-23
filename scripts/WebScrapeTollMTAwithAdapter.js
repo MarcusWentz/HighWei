@@ -7,5 +7,5 @@ const puppeteer = require('puppeteer');
         const text = await page.evaluate(el => { return el.textContent}, featureArticle);
         await browser.close();
         console.log(text.slice(10,text.length)*100); // REMOVE IN ADAPTER.JS
-        return text.slice(10,text.length)*100;
+        return BigInt(text.slice(10,text.length)*100); // BigInt to handle uint errors with Adapter.js
     })(); // REMOVE IN ADAPTER.JS
