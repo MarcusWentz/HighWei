@@ -44,20 +44,20 @@ def closeServoGateWeb3Tx():
 	    'to': Contract_At_Address, #WORKS WITH REGULAR WALLETS BUT CANNOT SEND TO CONTRACT FOR SOME REASON?
 	    'gas': 50000, #WORKS WITH 1000000. If not try : Remix > deploy and run transactions
 	    'gasPrice': web3.toWei('20', 'gwei'), # https://etherscan.io/gastracker
-	    'data': "0x60fe47b10000000000000000000000000000000000000000000000000000000000000000" #METAMASK SET DATA. NEEDS TO BE IN RAW FORMAT. FIND WAY TO ENCODE ABI.
+	    'data': "0x60fe47b10000000000000000000000000000000000000000000000000000000000000000" #METAMASK SET DATA. YOU CAN GENERATE THIS IN WEB3.PY AS WELL.
 	}
 	
 	signed_tx = web3.eth.account.signTransaction(tx, devTestnetPrivateKey)
 	print(web3.toHex(web3.eth.sendRawTransaction(signed_tx.rawTransaction)))
- 
+
 if __name__ == '__main__':
     try:
         while True:
             dist = distance()
             if(dist < 30 and contract_Call.functions.storedData().call() != 0):
             	closeServoGateWeb3Tx()
-            	print("MOTION DETECTED! WEB3 TX SENT.")
-            	time.sleep(5)
+            	time.sleep(15)
+            	print("MOTION DETECTED! WEB3 TX SENT. WAITING 15 SECONDS FOR BLOCK TO CONFIRM BEFORE CHECKING AGAIN.")
             print ("Measured Distance = %.1f cm" % dist)
             time.sleep(1)
  
