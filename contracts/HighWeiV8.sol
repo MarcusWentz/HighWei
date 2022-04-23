@@ -13,7 +13,6 @@ contract HighWei is ChainlinkClient, KeeperCompatibleInterface {
   uint public servoState; //Storage slot 0x00, 32 bytes.
   uint public timeOpened; //Storage slot 0x01, 32 bytes.
   uint public tollPennies; //Storage slot 0x02, 32 bytes. MTA toll for Verrazano Bridge (Truck: Two Axle) in Pennies.
-  uint public sensorState; //Storage slot 0x03 . Keepers = 0, Ultrasonics = 1;
   address public Owner; // Storage slot 0x04, 20 bytes.
 
     constructor() {
@@ -38,15 +37,9 @@ contract HighWei is ChainlinkClient, KeeperCompatibleInterface {
         timeOpened = block.timestamp;
     }
 
-    function closeServoGate() public onlyOwner {
-        require(block.timestamp >= timeOpened + 15, "WAIT_15_SECONDS_BEFORE_CLOSING.");
+    function closeServoGate() public onlyOwner { //Called by sensors (Ultrasonic or Keepers).
         servoState = 0;
         timeOpened = 0;
-    }
-
-    function toggleUltrasonicsKeepers(uint updateSensorState) public onlyOwner {
-      require(updateSensorState < 2 && updateSensorState != sensorState, "INPUT_0_OR_1_AND_HAVE_NEW_VALUE."); 
-      sensorState = updateSensorState; 
     }
 
     function checkUpkeep(bytes calldata) external override returns (bool upkeepNeeded, bytes memory) {
@@ -54,8 +47,7 @@ contract HighWei is ChainlinkClient, KeeperCompatibleInterface {
     } 
 
     function performUpkeep(bytes calldata) external override {
-        servoState = 0;
-        timeOpened = 0;
+        closeServoGate();
     }
 
   function uintAdapterCall() public returns (bytes32 requestId) {
