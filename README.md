@@ -9,15 +9,18 @@ Next steps:
 
 Backend:
 
--Ultrasonics reading sensor data in python https://tutorials-raspberrypi.com/raspberry-pi-ultrasonic-sensor-hc-sr04/ but not with Node.js/Web3 communication https://www.npmjs.com/package/raspi-hc-sr04 or https://www.npmjs.com/package/pigpio . Might consider sending Tx in web3.py for this part if this continues.
-
--Save gas with packing storage slots
+-Add bigger time delay o update handling data Tx instance for Python ultrasonic Tx instead of just copying and pasting from Metamask https://github.com/ethereum/web3.py/issues/685 or
+https://ethereum.stackexchange.com/questions/98307/valueerror-code-32000-message-already-known or https://ethereum.stackexchange.com/questions/12190/error-known-transaction
 
 Frontend: 
 
 -Single page, lightweight site to access with Metamask
 
 -Host page using IPFS/Filecoin on Fleek
+
+Bonus:
+
+-Hardhat Unit/Integration testing
 
 Hardware: (wiring diagram coming soon)
 
