@@ -5,6 +5,8 @@ Chainlink pricefeeds also used to remove need for ERC20 stablecoins. Chainlink K
 
 MTA toll website being XPATH scraped with Chainlink Adapter.js oracle: https://new.mta.info/fares-and-tolls/bridges-and-tunnels/tolls-by-vehicle/trucks
 
+Ultrasonic demo: https://www.youtube.com/watch?v=8jDGe1ou2r0
+
 Next steps: 
 
 Backend:
