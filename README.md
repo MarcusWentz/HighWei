@@ -23,8 +23,8 @@ Hardware: (wiring diagram coming soon)
 
 -Raspberry Pi 4
 
--Ultrasonic sensor (TRIGGER GPIO 18, ECHO GPIO 24)
+-Ultrasonic sensor [Model: HC-SR04] (TRIGGER GPIO 18, ECHO GPIO 24)
 
--Servo motor (GPIO 22)
+-Servo motor [Model: SG90] (GPIO 22)
 
 -1k and 2k ohm resistor (voltage divider for ultrasonics)
