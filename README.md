@@ -11,7 +11,7 @@ Next steps:
 
 Backend:
 
--Servo motor either written in web3.js (having trouble reinstalling) or write in Python (see if you can subscribe without polling API calls with events like web3.js)
+-Servo motor starting state and event listener in web.js (web.py does not support event listener without polling wasting API calls)
 
 Frontend: 
 
