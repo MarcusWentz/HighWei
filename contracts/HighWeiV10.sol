@@ -63,7 +63,7 @@ contract HighWei is ChainlinkClient, KeeperCompatibleInterface {
   }
 
   function oneBlockPassedSinceOpened() public view returns(bool) {
-    return (block.timestamp >= (timeOpened + 15));
+    return (servoState == 1 && block.timestamp >= (timeOpened + 15));
   }
 
 }
