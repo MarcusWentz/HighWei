@@ -47,7 +47,7 @@
 
 <div style="min-height: 5vh">
 <div class="col text-center">
-  <p>MTA Median Toll</p>
+  <p>Chainlink Adapter.js MTA Toll Fee Aggregator (Median 7 prices)</p>
 </div>
 </div>
 
@@ -68,10 +68,10 @@
   </div>
 
 <div style="min-height: 5vh">
-<div class="col text-center">
-<form action="https://keepers.chain.link/mumbai/1255">
-  <input type="submit" class="btn btn-danger" data-toggle="button" aria-pressed="false" autocomplete="off" value="<web3.js BUTTON> Pay MATIC to open gate" />
-</form>
+<div class="row">
+  <div class="col text-center">
+    <button class="btn btn-success" id=openGatePayMATIC>Pay MATIC to Open Gate</button>
+  </div>
 </div>
 </div>
 
@@ -90,45 +90,53 @@
 <div style="min-height: 5vh">
  <div class="row">
      <div class="col text-center">
-       <p class="text-dark" id=contractLINKbalanceDOM </p>
+       <p class="text-dark" id=contractAddress</p>
      </div>
    </div>
  </div>
 
 <div style="min-height: 5vh">
+ <div class="row">
+     <div class="col text-center">
+       <p class="text-dark" id=contractLINKbalanceDOM </p>
+     </div>
+   </div>
+ </div>
+
+ <div style="min-height: 5vh">
+ <div class="row">
+   <div class="col text-center">
+     <button class="btn btn-primary" id=chainlinkAPIrequestTollData>Chainlink API request</button>
+   </div>
+ </div>
+ </div>
+
+<div style="min-height: 5vh">
 <div class="col text-center">
-<form action="https://keepers.chain.link/mumbai/1255">
-  <input type="submit" class="btn btn-danger" data-toggle="button" aria-pressed="false" autocomplete="off" value="<web3.js BUTTON API request MTA fee>" />
-</form>
+  <p>Chainlink Useful Links</p>
 </div>
 </div>
 
 <div style="min-height: 5vh">
 <div class="col text-center">
-  <p>Chainlink</p>
+<form action="https://keepers.chain.link/mumbai/1255">
+  <input type="submit" class="btn btn-primary" value="Keepers Log" />
+</form>
 </div>
 </div>
 
 <div style="min-height: 5vh">
 <div class="col text-center">
 <form action="https://adapterjs.link/index.html">
-  <input type="submit" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off" value="Adapter.js API Website" />
+  <input type="submit" class="btn btn-primary" value="Adapter.js API Website" />
 </form>
 </div>
 </div>
 
 <div style="min-height: 5vh">
 <div class="col text-center">
-<form action="https://keepers.chain.link/mumbai/1255">
-  <input type="submit" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off" value="Keepers Log" />
-</form>
-</div>
-</div>
-
-<div style="min-height: 5vh">
-<div class="col text-center">
-<form action="https://docs.chain.link/docs/matic-addresses/#Mumbai%20Testnet">
-  <input type="submit" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off" value="Mumbai Pricefeeds" />
+<form action="https://docs.chain.link/docs/matic-addresses/">
+  <input type="submit" class="btn btn-primary" value="Mumbai Pricefeeds" />
 </form>
 </div>
 </div>
