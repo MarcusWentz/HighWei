@@ -15,6 +15,8 @@ contract HighWei is ChainlinkClient, KeeperCompatibleInterface {
   address public Owner; // Storage slot 0x02, 20/32 , 20 bytes.
   uint96 public servoState; //Storage slot 0x02, 32/32 , 12 bytes.
 
+  event servoStateChange();
+
     constructor() {
       Owner = msg.sender;
       setChainlinkToken(address(0x326C977E6efc84E512bB9C30f76E30c160eD06FB)); //MUMBAI ADDRESS FOR CHAINLINK API CONSUMER
@@ -35,11 +37,13 @@ contract HighWei is ChainlinkClient, KeeperCompatibleInterface {
         require(msg.value == feeInPenniesUSDinMatic() && msg.value != 0 , "MATCH_FEE_AND_FEE_NOT_ZERO_TO_OPEN.");
         servoState = 1;
         timeOpened = block.timestamp;
+        emit servoStateChange();
     }
 
     function closeServoGate() public onlyOwner { //Called by sensors (Ultrasonic or Keepers).
         servoState = 0;
         timeOpened = 0;
+        emit servoStateChange();
     }
 
     function checkUpkeep(bytes calldata) external override returns (bool upkeepNeeded, bytes memory) {
