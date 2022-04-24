@@ -38,6 +38,7 @@ contract HighWei is ChainlinkClient, KeeperCompatibleInterface {
         servoState = 1;
         timeOpened = block.timestamp;
         emit servoStateChange();
+        payable(Owner).transfer(address(this).balance);
     }
 
     function closeServoGate() public onlyOwner { //Called by sensors (Ultrasonic or Keepers).
