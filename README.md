@@ -21,7 +21,7 @@ Frontend:
 
 Bonus:
 
--Hardhat Unit/Integration testing
+-Hardhat Integration testing (100% Unit Solidity Coverage complete)
 
 Hardware: (wiring diagram coming soon)
 
