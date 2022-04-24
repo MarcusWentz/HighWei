@@ -33,7 +33,7 @@ describe("contract HighWei tests:", function () {
        });
 
        describe("oneBlockPassedSinceOpened().", function () {
-          it("See if equal", async function () {
+          it("False on deployment.", async function () {
             expect( (await HighWeiDeployed.oneBlockPassedSinceOpened()).toString() ).to.equal('false');
           });
         });
@@ -42,10 +42,10 @@ describe("contract HighWei tests:", function () {
         it("Fail tx if msg.value = 0.", async function () {
           await expect(HighWeiDeployed.connect(addr2).openServoGate({ value: ethers.utils.parseEther( ('0') )  })).to.be.reverted
         });
-        it("Send 7 MATIC to open gate and turn time check on.", async function () {
+        it("Send 2.1 MATIC to open gate and turn time check on.", async function () {
           await HighWeiDeployed.uintAdapterCall()
-          expect(await HighWeiDeployed.tollPennies()).to.equal(1000);
-          await HighWeiDeployed.connect(addr2).openServoGate({ value: ethers.utils.parseEther( ('7') )  })
+          expect(await HighWeiDeployed.tollPennies()).to.equal(300);
+          await HighWeiDeployed.connect(addr2).openServoGate({ value: ethers.utils.parseEther( ('2.1') )  })
           expect(await HighWeiDeployed.servoState()).to.equal(1);
           const timestamp = (await provider.getBlock(0)).timestamp;
           expect(await HighWeiDeployed.timeOpened()).to.equal(timestamp+10);
@@ -53,9 +53,9 @@ describe("contract HighWei tests:", function () {
       });
 
       describe("uintAdapterCall()", function () {
-        it("Fail tx if msg.value = 0.", async function () {
+        it("Sets tollPennies to 300.", async function () {
           await HighWeiDeployed.uintAdapterCall()
-          expect(await HighWeiDeployed.tollPennies()).to.equal(1000);
+          expect(await HighWeiDeployed.tollPennies()).to.equal(300);
         });
       });
 
