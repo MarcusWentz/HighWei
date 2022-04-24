@@ -56,7 +56,7 @@ IPFS/Filecoin with Fleek: 🔴  https://marcuswentz.github.io/HighWei/
 
 🟢Connect DOM elements to console.log GET values
 
-🔴web3.js SET buttons
+🟢web3.js SET buttons
 
 🔴Host page using IPFS/Filecoin on Fleek
 
