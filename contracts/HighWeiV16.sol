@@ -1,3 +1,4 @@
+
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
@@ -17,45 +18,45 @@ contract HighWei is ChainlinkClient, KeeperCompatibleInterface {
 
   event servoStateChange();
 
-    constructor() {
-      Owner = msg.sender;
-      setChainlinkToken(address(0x326C977E6efc84E512bB9C30f76E30c160eD06FB)); //MUMBAI ADDRESS FOR CHAINLINK API CONSUMER
-      priceFeed = AggregatorV3Interface(0xd0D5e3DB44DE05E9F294BB0a3bEEaF030DE24Ada); //MATIC/USD on Polygon Testnet Mumbai network.
-    }
+  constructor() {
+    Owner = msg.sender;
+    setChainlinkToken(address(0x326C977E6efc84E512bB9C30f76E30c160eD06FB)); //MUMBAI ADDRESS FOR CHAINLINK API CONSUMER
+    priceFeed = AggregatorV3Interface(0xd0D5e3DB44DE05E9F294BB0a3bEEaF030DE24Ada); //MATIC/USD on Polygon Testnet Mumbai network.
+  }
 
-    modifier onlyOwner() {
-        require(msg.sender == Owner, "ONLY_OWNER_FUNCTION.");
-        _;
-    }
+  modifier onlyOwner() {
+      require(msg.sender == Owner, "ONLY_OWNER_FUNCTION.");
+      _;
+  }
 
-     function feeInPenniesUSDinMatic() public view returns (uint) {
-        (uint80 roundID, int price, uint startedAt, uint timeStamp, uint80 answeredInRound) = priceFeed.latestRoundData();
-        return tollPennies*uint( (10**24) / price );
-    }
+  function feeInPenniesUSDinMatic() public view returns (uint) {
+      (uint80 roundID, int price, uint startedAt, uint timeStamp, uint80 answeredInRound) = priceFeed.latestRoundData();
+      return tollPennies*uint( (10**24) / price );
+  }
 
-    function openServoGate() public payable {
-        require(msg.value == feeInPenniesUSDinMatic() && msg.value != 0 , "MATCH_FEE_AND_FEE_NOT_ZERO_TO_OPEN.");
-        servoState = 1;
-        timeOpened = block.timestamp;
-        emit servoStateChange();
-        payable(Owner).transfer(address(this).balance);
-    }
+  function openServoGate() public payable {
+      require(msg.value == feeInPenniesUSDinMatic() && msg.value != 0 , "MATCH_FEE_AND_FEE_NOT_ZERO_TO_OPEN.");
+      servoState = 1;
+      timeOpened = block.timestamp;
+      emit servoStateChange();
+      payable(Owner).transfer(address(this).balance);
+  }
 
-    function closeServoGate() public onlyOwner { //Called by sensors (Ultrasonic or Keepers).
-        servoState = 0;
-        timeOpened = 0;
-        emit servoStateChange();
-    }
+  function closeServoGate() public onlyOwner { //Called by sensors (Ultrasonic or Keepers).
+      servoState = 0;
+      timeOpened = 0;
+      emit servoStateChange();
+  }
 
-    function checkUpkeep(bytes calldata) external override returns (bool upkeepNeeded, bytes memory) {
-        upkeepNeeded = oneBlockPassedSinceOpened();
-    } 
+  function checkUpkeep(bytes calldata) external override returns (bool upkeepNeeded, bytes memory) {
+      upkeepNeeded = oneBlockPassedSinceOpened();
+  } 
 
-    function performUpkeep(bytes calldata) external override { 
-        servoState = 0; //Can't call closeServoGate() directly because onlyOwner will block unique Keeper addresses. 
-        timeOpened = 0;
-        emit servoStateChange();
-    }
+  function performUpkeep(bytes calldata) external override { 
+      servoState = 0; //Can't call closeServoGate() directly because onlyOwner will block unique Keeper addresses. 
+      timeOpened = 0;
+      emit servoStateChange();
+  }
 
   function uintAdapterCall() public returns (bytes32 requestId) {
     Chainlink.Request memory request;
