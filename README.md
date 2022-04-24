@@ -3,7 +3,7 @@
 Tollbooth with ultrasonic sensors and servo motors. Chainlink node scrapes and aggregates MTA transit fee data using Adapter.js.
 Chainlink pricefeeds also used to remove need for ERC20 stablecoins. Chainlink Keepers can be used assuming large vehicles take over 15 seconds to fully cross path.
 
-## MTA Toll Price Data and Chainlink Adapter.js Median Price Aggregator: 💲 ⚖️
+## MTA Price Data and Chainlink Adapter.js Price Aggregator: 💲 ⚖️
 
 MTA toll website being XPATH scraped with Chainlink Adapter.js oracle (7 unique values with the median taken to aggregate prices): 
 
