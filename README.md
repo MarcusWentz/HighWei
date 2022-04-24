@@ -11,7 +11,7 @@ Ultrasonic demo: https://www.youtube.com/watch?v=8jDGe1ou2r0
 
 ### Backend: 🔨
 
--Servo motor starting state and event listener in web.js (web.py does not support event listener without polling wasting API calls)
+-Add more toll data (car maybe as well from MTA site)
 
 ### Frontend: 🪟 
 
