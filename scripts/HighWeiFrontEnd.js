@@ -51,6 +51,7 @@ const chainlinkERC20MumbaiABI_JS =
 const chainlinkERC20MumbaiAddressDefined_JS = new web3.eth.Contract(chainlinkERC20MumbaiABI_JS, chainlinkERC20MumbaiAddress_JS)
 
 function getLatestState() {
+  // document.getElementById("contractAddress").innerHTML = "Contract Address: " //+ contractAddress_JS
 
   contractDefined_JS.methods.servoState().call((err, servoStateResult) => {
     console.log("SERVO " + servoStateResult)
@@ -75,6 +76,65 @@ function getLatestState() {
 }
 
 getLatestState();
+
+const openGatePayMATICTx = document.querySelector('#openGatePayMATIC');
+openGatePayMATICTx.addEventListener('click', () => {
+  checkAddressMissingMetamask()
+
+  contractDefined_JS.methods.servoState().call((err, servoStateResult) => {
+    if(servoStateResult > 0){
+      alert("The gate is already open.")
+    }
+    else {
+      contractDefined_JS.methods.feeInPenniesUSDinMatic().call((err, feeinPenniesMaticResult) => {
+          ethereum
+            .request({
+              method: 'eth_sendTransaction',
+              params: [
+                {
+                  from: accounts[0],
+                  to: contractAddress_JS,
+                  data: contractDefined_JS.methods.openServoGate().encodeABI(),
+                  value: web3.utils.toHex(feeinPenniesMaticResult)
+                  },
+              ],
+            })
+            .then((txHash) => console.log(txHash))
+            .catch((error) => console.error);
+      })
+    }
+  })
+
+});
+
+const chainlinkAPIrequestTollDataTx = document.querySelector('#chainlinkAPIrequestTollData');
+chainlinkAPIrequestTollDataTx.addEventListener('click', () => {
+  checkAddressMissingMetamask()
+
+  chainlinkERC20MumbaiAddressDefined_JS.methods.balanceOf(contractAddress_JS).call((err, contractLINKbalanceResult) => {
+    if(contractLINKbalanceResult < 1*10**18){
+      alert("Send 1 LINK to the contract address then try again.")
+    }
+    else {
+      contractDefined_JS.methods.feeInPenniesUSDinMatic().call((err, feeinPenniesMaticResult) => {
+          ethereum
+            .request({
+              method: 'eth_sendTransaction',
+              params: [
+                {
+                  from: accounts[0],
+                  to: contractAddress_JS,
+                  data: contractDefined_JS.methods.uintAdapterCall().encodeABI(),
+                  },
+              ],
+            })
+            .then((txHash) => console.log(txHash))
+            .catch((error) => console.error);
+      })
+    }
+  })
+
+});
 
 contractDefined_JS.events.servoStateChange({ //Get the latest event. Once the event is triggered, website will update value.
      fromBlock: 'latest'
