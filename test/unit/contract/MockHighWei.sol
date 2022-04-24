@@ -23,18 +23,21 @@ contract HighWei {
         return tollPennies*7000000000000000;
     }
 
-    function openServoGate() public payable {
-        require(msg.value == feeInPenniesUSDinMatic() && msg.value != 0 , "MATCH_FEE_AND_FEE_NOT_ZERO_TO_OPEN.");
-        servoState = 1;
-        timeOpened = block.timestamp;
-        emit servoStateChange();
-    }
+  function openServoGate() public payable {
+      require(servoState == 0, "ALREADY_OPEN.");
+      require(msg.value == feeInPenniesUSDinMatic() && msg.value != 0 , "MATCH_FEE_AND_FEE_NOT_ZERO_TO_OPEN.");
+      servoState = 1;
+      timeOpened = block.timestamp;
+      emit servoStateChange();
+      payable(Owner).transfer(address(this).balance);
+  }
 
-    function closeServoGate() public onlyOwner { //Called by sensors (Ultrasonic or Keepers).
-        servoState = 0;
-        timeOpened = 0;
-        emit servoStateChange();
-    }
+  function closeServoGate() public onlyOwner { //Called by sensors (Ultrasonic or Keepers).
+      require(servoState == 1, "ALREADY_CLOSED.");
+      servoState = 0;
+      timeOpened = 0;
+      emit servoStateChange();
+  }
 
     function uintAdapterCall() public {
         tollPennies = 300;
