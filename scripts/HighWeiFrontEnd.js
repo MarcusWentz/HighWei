@@ -49,10 +49,17 @@ function getLatestState() {
 
   contractDefined_JS.methods.servoState().call((err, servoStateResult) => {
     console.log("SERVO " + servoStateResult)
+    document.getElementById("servoStateDOM").innerHTML = (servoStateResult == 0) ? "Closed (0)" : "Open (1)"
   });
 
   contractDefined_JS.methods.tollPennies().call((err, tollFeeResult) => {
     console.log("TOLL " + tollFeeResult);
+    document.getElementById("tollPenniesDOM").innerHTML = "$" + tollFeeResult/100
+  });
+
+  contractDefined_JS.methods.feeInPenniesUSDinMatic().call((err, feeinPenniesMaticResult) => {
+    console.log("feeinPenniesMatic " + feeinPenniesMaticResult);
+    document.getElementById("feeinPenniesMaticResultDOM").innerHTML = feeinPenniesMaticResult/(10**18) + " MATIC"
   });
 }
 
