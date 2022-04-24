@@ -32,24 +32,42 @@ describe("contract HighWei tests:", function () {
         });
        });
 
-       describe("oneBlockPassedSinceOpened().", function () {
-          it("False on deployment.", async function () {
-            expect( (await HighWeiDeployed.oneBlockPassedSinceOpened()).toString() ).to.equal('false');
-          });
-        });
-
       describe("openServoGate()", function () {
         it("Fail tx if msg.value = 0.", async function () {
           await expect(HighWeiDeployed.connect(addr2).openServoGate({ value: ethers.utils.parseEther( ('0') )  })).to.be.reverted
         });
-        it("Send 2.1 MATIC to open gate and turn time check on.", async function () {
+        it("Send 2.1 MATIC to open gate and turn time check on with contract balance 0 after transfer to Owner.", async function () {
           await HighWeiDeployed.uintAdapterCall()
           expect(await HighWeiDeployed.tollPennies()).to.equal(300);
           await HighWeiDeployed.connect(addr2).openServoGate({ value: ethers.utils.parseEther( ('2.1') )  })
           expect(await HighWeiDeployed.servoState()).to.equal(1);
           const timestamp = (await provider.getBlock(0)).timestamp;
-          expect(await HighWeiDeployed.timeOpened()).to.equal(timestamp+10);
+          expect(await HighWeiDeployed.timeOpened()).to.equal(timestamp+9);
+        //BALANCE CHECK  expect()
         });
+        it("Fail if already open.", async function () {
+          await HighWeiDeployed.uintAdapterCall()
+          expect(await HighWeiDeployed.tollPennies()).to.equal(300);
+          await HighWeiDeployed.connect(addr2).openServoGate({ value: ethers.utils.parseEther( ('2.1') )  })
+          await expect(HighWeiDeployed.connect(addr2).openServoGate({ value: ethers.utils.parseEther( ('2.1') )  })).to.be.revertedWith('ALREADY_OPEN.');
+        });
+      });
+
+      describe("closeServoGate()", function () {
+          it("Fail tx if Owner address is not used for tx.", async function () {
+            await expect(HighWeiDeployed.connect(addr2).closeServoGate()).to.be.revertedWith('ONLY_OWNER_FUNCTION.');
+          });
+          it("Fail tx if servo already closed.", async function () {
+            await expect(HighWeiDeployed.closeServoGate()).to.be.revertedWith('ALREADY_CLOSED.');
+          });
+          it("Pass if owner and servo open.", async function () {
+            await HighWeiDeployed.uintAdapterCall()
+            expect(await HighWeiDeployed.tollPennies()).to.equal(300);
+            await HighWeiDeployed.connect(addr2).openServoGate({ value: ethers.utils.parseEther( ('2.1') )  })
+            await expect(HighWeiDeployed.closeServoGate())
+            expect(await HighWeiDeployed.servoState()).to.equal(0);
+            expect(await HighWeiDeployed.timeOpened()).to.equal(0);
+          });
       });
 
       describe("uintAdapterCall()", function () {
@@ -59,15 +77,10 @@ describe("contract HighWei tests:", function () {
         });
       });
 
-      describe("closeServoGate()", function () {
-          it("Fail tx if Owner address is not used for tx.", async function () {
-            await expect(HighWeiDeployed.connect(addr2).closeServoGate()).to.be.revertedWith('ONLY_OWNER_FUNCTION.');
-          });
-          it("Pass if owner.", async function () {
-            await expect(HighWeiDeployed.closeServoGate())
-            expect(await HighWeiDeployed.servoState()).to.equal(0);
-            expect(await HighWeiDeployed.timeOpened()).to.equal(0);
-          });
-      });
+      describe("oneBlockPassedSinceOpened().", function () {
+         it("False on deployment.", async function () {
+           expect( (await HighWeiDeployed.oneBlockPassedSinceOpened()).toString() ).to.equal('false');
+         });
+       });
 
 });
