@@ -22,11 +22,15 @@ Ultrasonic demo: https://www.youtube.com/watch?v=8jDGe1ou2r0
 🔴Hardhat Integration testing with address deployed here:
 https://mumbai.polygonscan.com/address/0x7e46059924f049a61710ccb86be6d1f3a9d32357
  
- -🔴Pricefeed
+ -🟢Pricefeed
 
- -🔴API 
+ -🟢API 
  
  -🔴Keepers
+ 
+   -- 🔴Register
+   
+   -- 🔴Write and run test
 
 ### 🔴 Frontend: 🪟 
 
