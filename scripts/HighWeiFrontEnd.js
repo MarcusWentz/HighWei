@@ -51,7 +51,6 @@ const chainlinkERC20MumbaiABI_JS =
 const chainlinkERC20MumbaiAddressDefined_JS = new web3.eth.Contract(chainlinkERC20MumbaiABI_JS, chainlinkERC20MumbaiAddress_JS)
 
 function getLatestState() {
-  // document.getElementById("contractAddress").innerHTML = "Contract Address: " //+ contractAddress_JS
 
   contractDefined_JS.methods.servoState().call((err, servoStateResult) => {
     console.log("SERVO " + servoStateResult)
