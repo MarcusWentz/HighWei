@@ -15,10 +15,6 @@ Ultrasonic demo: https://www.youtube.com/watch?v=8jDGe1ou2r0
 
 ## Next steps: 🔭
 
-### 🟢 Testing: 🚧
-  
-✔️
-
 ### 🔴 Frontend: 🪟 
 
 🔴Single page, lightweight site to access with Metamask
@@ -30,6 +26,10 @@ https://mumbai.polygonscan.com/address/0x7e46059924f049a61710ccb86be6d1f3a9d3235
 
 ### 🟢 Backend: 🔨
 
+✔️
+
+### 🟢 Testing: 🚧
+  
 ✔️
 
 ### 🟡Hardware: ⚙️
