@@ -17,19 +17,15 @@ Ultrasonic demo: https://www.youtube.com/watch?v=8jDGe1ou2r0
 
 ### 🟡 Testing: 🚧
     
-🟡(100% Unit Solidity Coverage complete)
+🟢(100% Unit Solidity Coverage complete)
 
--🔴Test payable transfer with contract balance as 0
-
--🔴Test servo checks
-
-🔴Hardhat Integration testing with address deployed here: https://mumbai.polygonscan.com/address/0x579A452cb253d41E58d3d7B56D4c54A96122a1E6
+🟡Hardhat Integration testing with address deployed here: https://mumbai.polygonscan.com/address/0x579A452cb253d41E58d3d7B56D4c54A96122a1E6
  
  -🟢Pricefeed
 
  -🟢API 
  
- -🔴Keepers
+ -🟡Keepers
  
    -- 🟢Register: https://keepers.chain.link/mumbai/1254
    
