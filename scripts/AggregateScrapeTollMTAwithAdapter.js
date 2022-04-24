@@ -4,7 +4,7 @@ const puppeteer = require('puppeteer');
         const page = await browser.newPage();
         await page.goto('https://new.mta.info/fares-and-tolls/bridges-and-tunnels/tolls-by-vehicle/trucks', { waitUntil: 'networkidle2' }); //URL
         const featureArticle1 = (await page.$x('/html/body/div[1]/div/div/section/div[4]/article/div/div/div/div/div/div/div/ul[1]/li[1]'))[0]; //XPATH
-        const text1 = await page.evaluate(el => { return el.textContent}, featureArticle1)
+        const text1 = await page.evaluate(el => { return el.textContent}, featureArticle1);
         const featureArticle2 = (await page.$x('/html/body/div[1]/div/div/section/div[4]/article/div/div/div/div/div/div/div/ul[3]/li[1]'))[0]; //XPATH
         const text2 = await page.evaluate(el => { return el.textContent}, featureArticle2);
         await browser.close();
