@@ -28,7 +28,7 @@ chai.use(require('chai-bn')(BN));
       console.log("feeInPenniesUSDinMatic: ", new ethers.BigNumber.from(resultFeeInPennies._hex).toString())
       expect(new ethers.BigNumber.from(resultFeeInPennies._hex).toString()).to.be.a.bignumber.that.is.greaterThan(new ethers.BigNumber.from(0).toString())
     })
-      it('Chainlink Keepers sets servo value back to 0 after 15 seconds.', async () => {
+      it('Chainlink Keepers sets servo value back to 0 after one block (about 15 seconds).', async () => {
       const accounts = await ethers.getSigners()
       const signer = accounts[0]
       const highWeiContract = new ethers.Contract('0xDA6a9bf11ab5d0F630F6c8417948B1B81E7Da94a', HighWeiKeeperABI, signer)
@@ -36,7 +36,7 @@ chai.use(require('chai-bn')(BN));
       var openServoGateWithMATIC = await highWeiContract.openServoGate({value:resultFeeInPennies.toString()})
       await openServoGateWithMATIC.wait()
       console.log('buy_hash:' + openServoGateWithMATIC.hash)
-      await new Promise(resolve => setTimeout(resolve, 30000))
+      await new Promise(resolve => setTimeout(resolve, 15000))
       const resultServoState = await highWeiContract.servoState()
       console.log("Chainlink Keepers closes gate with servo: ", new ethers.BigNumber.from(resultServoState._hex).toString())
       expect(resultServoState == 0)
