@@ -13,16 +13,7 @@ Cars: https://new.mta.info/fares-and-tolls/bridges-and-tunnels/tolls-by-vehicle/
 
 Ultrasonic demo: https://www.youtube.com/watch?v=8jDGe1ou2r0
 
-## Next steps: 🔭
-
-### 🔴 Frontend: 🪟 
-
-🔴Single page, lightweight site to access with Metamask
-
-🔴Host page using IPFS/Filecoin on Fleek
-
-🔴Verify contract with Hardhat
-https://mumbai.polygonscan.com/address/0x7e46059924f049a61710ccb86be6d1f3a9d32357
+## Status: 👁️ 👁️
 
 ### 🟢 Backend: 🔨
 
@@ -34,7 +25,7 @@ https://mumbai.polygonscan.com/address/0x7e46059924f049a61710ccb86be6d1f3a9d3235
 
 ### 🟡Hardware: ⚙️
 
-(wiring diagram coming soon)
+-🔴GPIO wiring diagram with ultrasonic/servo
 
 -Raspberry Pi 4 🫐 🍓
 
@@ -43,3 +34,12 @@ https://mumbai.polygonscan.com/address/0x7e46059924f049a61710ccb86be6d1f3a9d3235
 -Servo motor [Model: SG90] (GPIO 22)
 
 -1k and 2k ohm resistor (voltage divider for ultrasonics)
+
+### 🔴 Frontend: 🪟 
+
+🔴Single page, lightweight site to access with Metamask
+
+🔴Host page using IPFS/Filecoin on Fleek
+
+🔴Verify contract with Hardhat
+https://mumbai.polygonscan.com/address/0x7e46059924f049a61710ccb86be6d1f3a9d32357
