@@ -7,25 +7,25 @@ MTA toll website being XPATH scraped with Chainlink Adapter.js oracle: https://n
 
 Ultrasonic demo: https://www.youtube.com/watch?v=8jDGe1ou2r0
 
-Next steps: 
+# Next steps: 🔭
 
-Backend:
+# Backend: ⚙️
 
 -Servo motor starting state and event listener in web.js (web.py does not support event listener without polling wasting API calls)
 
-Frontend: 
+# Frontend: 🪟 
 
 -Single page, lightweight site to access with Metamask
 
 -Host page using IPFS/Filecoin on Fleek
 
-Bonus:
+# Testing: 🚧
 
 -Hardhat Integration testing (100% Unit Solidity Coverage complete)
 
 Hardware: (wiring diagram coming soon)
 
--Raspberry Pi 4
+-Raspberry Pi 4 🫐 🍓
 
 -Ultrasonic sensor [Model: HC-SR04] (TRIGGER GPIO 18, ECHO GPIO 24)
 
