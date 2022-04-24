@@ -35,6 +35,7 @@ contract HighWei is ChainlinkClient, KeeperCompatibleInterface {
   }
 
   function openServoGate() public payable {
+      require(servoState == 0, "ALREADY_OPEN.");
       require(msg.value == feeInPenniesUSDinMatic() && msg.value != 0 , "MATCH_FEE_AND_FEE_NOT_ZERO_TO_OPEN.");
       servoState = 1;
       timeOpened = block.timestamp;
@@ -43,6 +44,7 @@ contract HighWei is ChainlinkClient, KeeperCompatibleInterface {
   }
 
   function closeServoGate() public onlyOwner { //Called by sensors (Ultrasonic or Keepers).
+      require(servoState == 1, "ALREADY_CLOSED.");
       servoState = 0;
       timeOpened = 0;
       emit servoStateChange();
