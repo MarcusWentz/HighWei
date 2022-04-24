@@ -50,8 +50,10 @@ contract HighWei is ChainlinkClient, KeeperCompatibleInterface {
         upkeepNeeded = oneBlockPassedSinceOpened();
     } 
 
-    function performUpkeep(bytes calldata) external override {
-        closeServoGate();
+    function performUpkeep(bytes calldata) external override { 
+        servoState = 0; //Can't call closeServoGate() directly because onlyOwner will block unique Keeper addresses. 
+        timeOpened = 0;
+        emit servoStateChange();
     }
 
   function uintAdapterCall() public returns (bytes32 requestId) {
