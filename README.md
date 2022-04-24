@@ -17,19 +17,17 @@ Ultrasonic demo: https://www.youtube.com/watch?v=8jDGe1ou2r0
 
 ## Next steps: 🔭
 
-### Backend: 🔨
+### 🟡 Testing: 🚧
 
--Add more toll data (car maybe as well from MTA site)
+-Hardhat Integration testing (100% Unit Solidity Coverage complete)
 
-### Frontend: 🪟 
+### 🔴 Frontend: 🪟 
 
 -Single page, lightweight site to access with Metamask
 
 -Host page using IPFS/Filecoin on Fleek
 
-### Testing: 🚧
-
--Hardhat Integration testing (100% Unit Solidity Coverage complete)
+### 🟢 Backend: 🔨
 
 ### Hardware: ⚙️
 
