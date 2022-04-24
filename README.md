@@ -54,7 +54,7 @@ IPFS/Filecoin with Fleek: 🔴  https://marcuswentz.github.io/HighWei/
 
 🟢web3.js GET values [events on Infura provider might not work for Mumbai yet due to lack of WSS]
 
-🔴Connect DOM elements to console.log GET values
+🟢Connect DOM elements to console.log GET values
 
 🔴web3.js SET buttons
 
