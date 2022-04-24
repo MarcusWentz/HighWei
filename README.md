@@ -13,7 +13,11 @@ Trucks: https://new.mta.info/fares-and-tolls/bridges-and-tunnels/tolls-by-vehicl
  
 Cars: https://new.mta.info/fares-and-tolls/bridges-and-tunnels/tolls-by-vehicle/cars
 
-Ultrasonic demo: https://www.youtube.com/watch?v=8jDGe1ou2r0
+📹 Full presentation: 🔴 Ultrasonic Demo: https://www.youtube.com/watch?v=8jDGe1ou2r0
+
+🟦 Chainlink Keepers Log: https://keepers.chain.link/mumbai/1255
+
+🕸️ Website hosted on IPFS/Filecoin with Fleek: 🔴
 
 ## Status: 👁️ 👁️
 
@@ -44,4 +48,4 @@ Ultrasonic demo: https://www.youtube.com/watch?v=8jDGe1ou2r0
 🔴Host page using IPFS/Filecoin on Fleek
 
 🔴Verify contract with Hardhat
-https://mumbai.polygonscan.com/address/0x7e46059924f049a61710ccb86be6d1f3a9d32357
+https://mumbai.polygonscan.com/address/0xDA6a9bf11ab5d0F630F6c8417948B1B81E7Da94a
