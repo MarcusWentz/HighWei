@@ -17,7 +17,10 @@ Chainlink pricefeeds also used to remove need for ERC20 stablecoins. Chainlink K
 
 🟦 Chainlink Keepers Log: https://keepers.chain.link/mumbai/1255
 
-🕸️ Website hosted on IPFS/Filecoin with Fleek: 🔴
+🕸️ Website hosted on 
+
+GitHub pages: 🟢 https://marcuswentz.github.io/HighWei/
+IPFS/Filecoin with Fleek: 🔴  https://marcuswentz.github.io/HighWei/ 
 
 ## Status: 👁️ 👁️
 
@@ -41,9 +44,19 @@ Chainlink pricefeeds also used to remove need for ERC20 stablecoins. Chainlink K
 
 -1k and 2k ohm resistor (voltage divider for ultrasonics)
 
-### 🔴 Frontend: 🪟 
+### 🟡 Frontend: 🪟 
 
-🔴Single page, lightweight site to access with Metamask
+🟢Draft Template Layout Complete
+
+🟢Template hosted on GitHub Pages: https://marcuswentz.github.io/HighWei/
+
+🔴Connect with Metamask web3 provider on Mumbai ChainId:8001
+
+🔴web3.js GET values
+
+🔴web3.js SET buttons
+
+🔴web3.js test events
 
 🔴Host page using IPFS/Filecoin on Fleek
 
