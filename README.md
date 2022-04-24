@@ -7,13 +7,9 @@ Chainlink pricefeeds also used to remove need for ERC20 stablecoins. Chainlink K
 
 MTA toll website being XPATH scraped with Chainlink Adapter.js oracle (7 unique values with the median taken to aggregate prices): 
 
-Trucks:
-
-    https://new.mta.info/fares-and-tolls/bridges-and-tunnels/tolls-by-vehicle/trucks
+Trucks: https://new.mta.info/fares-and-tolls/bridges-and-tunnels/tolls-by-vehicle/trucks
  
-Cars:
-
-    https://new.mta.info/fares-and-tolls/bridges-and-tunnels/tolls-by-vehicle/cars
+Cars: https://new.mta.info/fares-and-tolls/bridges-and-tunnels/tolls-by-vehicle/cars
 
 Ultrasonic demo: https://www.youtube.com/watch?v=8jDGe1ou2r0
 
