@@ -13,6 +13,6 @@ const puppeteer = require('puppeteer');
         let averagePrice = Math.round( (price1+price2)/2);
         console.log(price1); // REMOVE IN ADAPTER.JS
         console.log(price2); // REMOVE IN ADAPTER.JS
-        console.log(averagePrice);
+        console.log(averagePrice); // REMOVE IN ADAPTER.JS
         return BigInt(averagePrice); // BigInt to handle uint errors with Adapter.js
     })(); // REMOVE IN ADAPTER.JS
