@@ -30,6 +30,6 @@ const puppeteer = require('puppeteer');
         priceArray.sort(function(a, b){return a - b});
         console.log(priceArray); // REMOVE IN ADAPTER.JS
         let medianPrice = priceArray[Math.floor(priceArray.length/2)];
-        console.log(medianPrice); // REMOVE IN ADAPTER.JS
-        return BigInt(medianPrice); // BigInt to handle uint errors with Adapter.js
+        console.log(Math.round(medianPrice)); // REMOVE IN ADAPTER.JS
+        return BigInt(Math.round(medianPrice)); // BigInt to handle uint errors with Adapter.js
     })(); // REMOVE IN ADAPTER.JS
