@@ -43,7 +43,7 @@ describe("contract HighWei tests:", function () {
           expect(await HighWeiDeployed.servoState()).to.equal(1);
           const timestamp = (await provider.getBlock(0)).timestamp;
           expect(await HighWeiDeployed.timeOpened()).to.equal(timestamp+9);
-        //BALANCE CHECK  expect()
+          expect(await provider.getBalance(HighWeiDeployed.address)).to.equal(0);
         });
         it("Fail if already open.", async function () {
           await HighWeiDeployed.uintAdapterCall()
