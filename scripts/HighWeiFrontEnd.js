@@ -136,20 +136,3 @@ chainlinkAPIrequestTollDataTx.addEventListener('click', () => {
   })
 
 });
-
-contractDefined_JS.events.servoStateChange({ //Get the latest event. Once the event is triggered, website will update value.
-     fromBlock: 'latest'
- }, function(error, eventResult){})
- .on('data', function(eventResult){
-   console.log(eventResult)
-     //Get latest Scale_Fee after event.
-     contractDefined_JS.methods.ScaleFee_State().call((err, ScaleFee) => {
-     document.getElementById("getValueScale_FeeSmartContract").innerHTML = "Scale_Fee = " + (ScaleFee>>3)/10 + "%"
-     })
-     //Check if anything was sold live on the page.
-     getLatestState()
-   })
- .on('changed', function(eventResult){
-     // remove event from local database
- })
- .on('error', console.error);
