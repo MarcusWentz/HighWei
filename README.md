@@ -50,9 +50,11 @@ IPFS/Filecoin with Fleek: 🔴  https://marcuswentz.github.io/HighWei/
 
 🟢Template hosted on GitHub Pages: https://marcuswentz.github.io/HighWei/
 
-🔴Connect with Metamask web3 provider on Mumbai ChainId:8001
+🟢Connect with Metamask web3 provider on Mumbai Chain ID: 80001
 
-🔴web3.js GET values [events on Infura provider might not work for Mumbai yet due to lack of WSS]
+🟢web3.js GET values [events on Infura provider might not work for Mumbai yet due to lack of WSS]
+
+🔴Connect DOM elements to console.log GET values
 
 🔴web3.js SET buttons
 
