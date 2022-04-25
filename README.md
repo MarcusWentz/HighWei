@@ -7,7 +7,7 @@ Chainlink pricefeeds also used to remove need for ERC20 stablecoins. Chainlink K
 
 💲MTA toll website being XPATH scraped (with Puppeteer https://www.npmjs.com/package/puppeteer) inside Chainlink Adapter.js oracle
 
-⚖️ 7 unique values with the median taken to aggregate prices: 
+⚖️ Aggregate 7 toll values and get the median: https://github.com/MarcusWentz/HighWei/blob/main/scripts/AggregateScrapeTollMTAwithAdapter.js 
 
 🚚Trucks: https://new.mta.info/fares-and-tolls/bridges-and-tunnels/tolls-by-vehicle/trucks
  
