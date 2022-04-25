@@ -54,3 +54,6 @@ GitHub pages (source): https://marcuswentz.github.io/HighWei/
 https://mumbai.polygonscan.com/address/0xDA6a9bf11ab5d0F630F6c8417948B1B81E7Da94a
 
 🟡See if you can reload site after Tx to emulate events
+
+### 🟡 Presentation: 🎁
+https://docs.google.com/presentation/d/1grKpwfnQWYyvnZJFkbXsvQHCDB3aD3WPl4F8A57xDPo/edit?usp=sharing
