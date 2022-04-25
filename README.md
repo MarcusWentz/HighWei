@@ -19,8 +19,10 @@ Chainlink pricefeeds also used to remove need for ERC20 stablecoins. Chainlink K
 
 🕸️ Website hosted on 
 
-GitHub pages: 🟢 https://marcuswentz.github.io/HighWei/
-IPFS/Filecoin with Fleek: 🔴  https://marcuswentz.github.io/HighWei/ 
+IPFS/Filecoin (Fleek): https://highwei.on.fleek.co/
+
+GitHub pages (source): https://marcuswentz.github.io/HighWei/
+
 
 ## Status: 👁️ 👁️
 
@@ -58,7 +60,7 @@ IPFS/Filecoin with Fleek: 🔴  https://marcuswentz.github.io/HighWei/
 
 🟢web3.js SET buttons
 
-🔴Host page using IPFS/Filecoin on Fleek
+🟢Host page using IPFS/Filecoin on Fleek
 
 🔴Verify contract with Hardhat
 https://mumbai.polygonscan.com/address/0xDA6a9bf11ab5d0F630F6c8417948B1B81E7Da94a
