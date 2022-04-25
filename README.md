@@ -48,20 +48,6 @@ GitHub pages (source): https://marcuswentz.github.io/HighWei/
 
 ### 🟡 Frontend: 🪟 
 
-🟢Draft Template Layout Complete
-
-🟢Template hosted on GitHub Pages: https://marcuswentz.github.io/HighWei/
-
-🟢Connect with Metamask web3 provider on Mumbai Chain ID: 80001
-
-🟢web3.js GET values [events on Infura provider might not work for Mumbai yet due to lack of WSS]
-
-🟢Connect DOM elements to console.log GET values
-
-🟢web3.js SET buttons
-
-🟢Host page using IPFS/Filecoin on Fleek
-
 🔴Update hardware address/ABI and test UI/UX with frontend
 
 🔴Verify contract with Hardhat
