@@ -62,5 +62,9 @@ GitHub pages (source): https://marcuswentz.github.io/HighWei/
 
 🟢Host page using IPFS/Filecoin on Fleek
 
+🔴Update hardware address/ABI and test UI/UX with frontend
+
 🔴Verify contract with Hardhat
 https://mumbai.polygonscan.com/address/0xDA6a9bf11ab5d0F630F6c8417948B1B81E7Da94a
+
+🟡See if you can reload site after Tx to emulate events
