@@ -1,5 +1,6 @@
 let accounts = [];
 document.getElementById("enableEthereumButton").innerHTML =  "Connect Metamask"
+
 function detectMetamaskInstalled(){
   try{
      ethereum.isMetaMask
@@ -8,6 +9,8 @@ function detectMetamaskInstalled(){
      alert("Metamask not detected in browser! Install Metamask browser extension, then refresh page!")
   }
 }
+
+detectMetamaskInstalled()
 
 function checkAddressMissingMetamask() {
   if(accounts.length == 0) {
@@ -18,14 +21,10 @@ function checkAddressMissingMetamask() {
 function enableMetamaskOnMumbai() {
   getAccount();
   if(window.ethereum.networkVersion != 80001){
-    alert("You are not on the Mumbai Testnet! Please switch to Rinkeby and refresh page.")
+    alert("You are not on the Mumbai Testnet! Please switch to Mumbai (Chain ID 80001) and refresh page.")
   }
 }
 
-//When the page is opened check for error handling issues.
-detectMetamaskInstalled()
-
-//Connect to Metamask.
 const ethereumButton = document.querySelector('#enableEthereumButton');
 ethereumButton.addEventListener('click', () => {
     detectMetamaskInstalled()
@@ -37,9 +36,7 @@ async function getAccount() {
   document.getElementById("enableEthereumButton").innerText = accounts[0].substr(0,5) + "..." +  accounts[0].substr(38,4)
 }
 
-//Make Metamask the client side Web3 provider. Needed for tracking live events.
 const web3 = new Web3(window.ethereum)
-//Now build the contract with Web3.
 const contractAddress_JS = '0xDA6a9bf11ab5d0F630F6c8417948B1B81E7Da94a'
 const contractABI_JS =
 [{"inputs":[],"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"bytes32","name":"id","type":"bytes32"}],"name":"ChainlinkCancelled","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"bytes32","name":"id","type":"bytes32"}],"name":"ChainlinkFulfilled","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"bytes32","name":"id","type":"bytes32"}],"name":"ChainlinkRequested","type":"event"},{"anonymous":false,"inputs":[],"name":"servoStateChange","type":"event"},{"inputs":[],"name":"Owner","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"bytes","name":"","type":"bytes"}],"name":"checkUpkeep","outputs":[{"internalType":"bool","name":"upkeepNeeded","type":"bool"},{"internalType":"bytes","name":"","type":"bytes"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"closeServoGate","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"feeInPenniesUSDinMatic","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"bytes32","name":"_requestId","type":"bytes32"},{"internalType":"uint256","name":"reply","type":"uint256"}],"name":"fulfillUint","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"oneBlockPassedSinceOpened","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"openServoGate","outputs":[],"stateMutability":"payable","type":"function"},{"inputs":[{"internalType":"bytes","name":"","type":"bytes"}],"name":"performUpkeep","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"servoState","outputs":[{"internalType":"uint96","name":"","type":"uint96"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"timeOpened","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"tollPennies","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"uintAdapterCall","outputs":[{"internalType":"bytes32","name":"requestId","type":"bytes32"}],"stateMutability":"nonpayable","type":"function"}]
