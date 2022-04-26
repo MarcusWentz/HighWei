@@ -15,6 +15,8 @@ Chainlink pricefeeds also used to remove need for ERC20 stablecoins. Chainlink K
 
 📹 Full Video Presentation: 🔴 Ultrasonic Video Demo: https://www.youtube.com/watch?v=8jDGe1ou2r0
 
+🎁 Presentation slides: https://docs.google.com/presentation/d/1grKpwfnQWYyvnZJFkbXsvQHCDB3aD3WPl4F8A57xDPo/edit?usp=sharing
+
 🟦 Chainlink Keepers Log: https://keepers.chain.link/mumbai/1255
 
 🕸️ Website hosted on 
@@ -23,18 +25,7 @@ IPFS/Filecoin (Fleek): https://highwei.on.fleek.co/
 
 GitHub pages (source): https://marcuswentz.github.io/HighWei/
 
-
-## Status: 👁️ 👁️
-
-### 🟢 Backend: 🔨
-
-✔️
-
-### 🟢 Testing: 🚧
-  
-✔️
-
-### 🟢Hardware: ⚙️
+## Hardware: ⚙️
 
 <img src="https://github.com/MarcusWentz/HighWei/blob/main/images/wiring.png" alt="Wiring"/>
 
@@ -46,6 +37,8 @@ GitHub pages (source): https://marcuswentz.github.io/HighWei/
 
 -1k and 2k ohm resistor (voltage divider for ultrasonics)
 
+## Status: 👁️ 👁️
+
 ### 🟡 Frontend: 🪟 
 
 🔴Experiment with UI/UX with website and hardware
@@ -53,5 +46,4 @@ GitHub pages (source): https://marcuswentz.github.io/HighWei/
 🔴Verify contract with Hardhat
 https://mumbai.polygonscan.com/address/0xDA6a9bf11ab5d0F630F6c8417948B1B81E7Da94a
 
-### 🟢 Presentation: 🎁
-https://docs.google.com/presentation/d/1grKpwfnQWYyvnZJFkbXsvQHCDB3aD3WPl4F8A57xDPo/edit?usp=sharing
+
