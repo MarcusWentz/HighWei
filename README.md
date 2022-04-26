@@ -34,9 +34,9 @@ GitHub pages (source): https://marcuswentz.github.io/HighWei/
   
 ✔️
 
-### 🟡Hardware: ⚙️
+### 🟢Hardware: ⚙️
 
--🔴GPIO wiring diagram with ultrasonic/servo
+<img src="https://github.com/MarcusWentz/HighWei/blob/main/images/wiring.png" alt="Wiring"/>
 
 -Raspberry Pi 4 🫐 🍓
 
