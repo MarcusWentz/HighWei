@@ -48,12 +48,12 @@ GitHub pages (source): https://marcuswentz.github.io/HighWei/
 
 ### 🟡 Frontend: 🪟 
 
+🔴Reload site after Tx to update page elements [timer after hash created or await Tx confirmed]
+
 🔴Update hardware address/ABI and test UI/UX with frontend
 
 🔴Verify contract with Hardhat
 https://mumbai.polygonscan.com/address/0xDA6a9bf11ab5d0F630F6c8417948B1B81E7Da94a
 
-🟡See if you can reload site after Tx to emulate events
-
-### 🟡 Presentation: 🎁
+### 🟢 Presentation: 🎁
 https://docs.google.com/presentation/d/1grKpwfnQWYyvnZJFkbXsvQHCDB3aD3WPl4F8A57xDPo/edit?usp=sharing
