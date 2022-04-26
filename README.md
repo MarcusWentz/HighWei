@@ -46,4 +46,5 @@ GitHub pages (source): https://marcuswentz.github.io/HighWei/
 🔴Verify contract with Hardhat
 https://mumbai.polygonscan.com/address/0xDA6a9bf11ab5d0F630F6c8417948B1B81E7Da94a
 
-
+    npx hardhat clean 
+    npx hardhat verify --network mainnet mumbai 0xDA6a9bf11ab5d0F630F6c8417948B1B81E7Da94a
