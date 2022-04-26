@@ -80,6 +80,10 @@ function getLatestState() {
 
 getLatestState();
 
+function timeout(ms) {
+	return new Promise(resolve => setTimeout(resolve,ms));
+}
+
 const openGatePayMATICTx = document.querySelector('#openGatePayMATIC');
 openGatePayMATICTx.addEventListener('click', () => {
   checkAddressMissingMetamask()
@@ -102,7 +106,15 @@ openGatePayMATICTx.addEventListener('click', () => {
                   },
               ],
             })
-            .then((txHash) => console.log(txHash))
+            .then(async (txHash) => { //Infura does not support WSS Mumbai yet, so refresh DOM element after txHash confirmed.
+              await timeout(12000)
+              console.log(txHash)
+              web3.eth.getTransactionReceipt(txHash).then(console.log)
+              contractDefined_JS.methods.servoState().call((err, servoStateResult) => {
+                  console.log("SERVO " + servoStateResult)
+                  document.getElementById("servoStateDOM").innerHTML = (servoStateResult == 0) ? "Closed (0)" : "Open (1)"
+              });
+            })
             .catch((error) => console.error);
       })
     }
