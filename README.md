@@ -47,4 +47,4 @@ GitHub pages (source): https://marcuswentz.github.io/HighWei/
 https://mumbai.polygonscan.com/address/0xDA6a9bf11ab5d0F630F6c8417948B1B81E7Da94a
 
     npx hardhat clean 
-    npx hardhat verify --network mainnet mumbai 0xDA6a9bf11ab5d0F630F6c8417948B1B81E7Da94a
+    npx hardhat verify --network mumbai 0xDA6a9bf11ab5d0F630F6c8417948B1B81E7Da94a
