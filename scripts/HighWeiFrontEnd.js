@@ -55,8 +55,13 @@ document.getElementById("contractAddressDOM").innerHTML = "Contract Address " + 
 function getLatestState() {
 
   contractDefined_JS.methods.servoState().call((err, servoStateResult) => {
-    console.log("SERVO " + servoStateResult)
-    document.getElementById("servoStateDOM").innerHTML = (servoStateResult == 0) ? "Closed (0)" : "Open (1)"
+    if(servoStateResult === undefined){
+      alert("Install Metamask and connect to Mumbai to see smart contract state values.")
+      document.getElementById("servoStateDOM").innerHTML = "NaN"
+    } else{
+      console.log("SERVO " + servoStateResult)
+      document.getElementById("servoStateDOM").innerHTML = (servoStateResult == 0) ? "Closed (0)" : "Open (1)"
+    }
   });
 
   contractDefined_JS.methods.tollPennies().call((err, tollFeeResult) => {
