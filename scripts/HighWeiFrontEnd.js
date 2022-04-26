@@ -107,9 +107,9 @@ openGatePayMATICTx.addEventListener('click', () => {
               ],
             })
             .then(async (txHash) => { //Infura does not support WSS Mumbai yet, so refresh DOM element after txHash confirmed.
-              await timeout(12000)
+              await timeout(20000)
               console.log(txHash)
-              web3.eth.getTransactionReceipt(txHash).then(console.log)
+              web3.eth.getTransactionReceipt(txHash).then(console.log);
               contractDefined_JS.methods.servoState().call((err, servoStateResult) => {
                   console.log("SERVO " + servoStateResult)
                   document.getElementById("servoStateDOM").innerHTML = (servoStateResult == 0) ? "Closed (0)" : "Open (1)"
