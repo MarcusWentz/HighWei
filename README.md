@@ -48,8 +48,6 @@ GitHub pages (source): https://marcuswentz.github.io/HighWei/
 
 ### 🟡 Frontend: 🪟 
 
-🔴Reload site after Tx to update page elements [timer after hash created or await Tx confirmed]
-
 🔴Update hardware address/ABI and test UI/UX with frontend
 
 🔴Verify contract with Hardhat
