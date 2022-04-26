@@ -48,7 +48,7 @@ GitHub pages (source): https://marcuswentz.github.io/HighWei/
 
 ### 🟡 Frontend: 🪟 
 
-🔴Update hardware address/ABI and test UI/UX with frontend
+🔴Update hardware address/ABI and test UI/UX with frontend [HEX DATA METAMASK FOR WEB3.PY 0xe157df83]
 
 🔴Verify contract with Hardhat
 https://mumbai.polygonscan.com/address/0xDA6a9bf11ab5d0F630F6c8417948B1B81E7Da94a
