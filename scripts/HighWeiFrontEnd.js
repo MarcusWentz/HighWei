@@ -63,7 +63,7 @@ function getLatestState() {
 
   contractDefined_JS.methods.tollPennies().call((err, tollFeeResult) => {
     console.log("TOLL " + tollFeeResult);
-    document.getElementById("tollPenniesDOM").innerHTML = "$" + tollFeeResult/100
+    document.getElementById("tollPenniesDOM").innerHTML = "$" + (tollFeeResult/100).toFixed(2)
   });
 
   contractDefined_JS.methods.feeInPenniesUSDinMatic().call((err, feeinPenniesMaticResult) => {
@@ -106,7 +106,7 @@ openGatePayMATICTx.addEventListener('click', () => {
                   },
               ],
             })
-            .then(async (txHash) => { //Infura does not support WSS Mumbai yet, so refresh DOM element after txHash confirmed.
+            .then(async (txHash) => { //Infura does not support WSS Mumbai yet for events, so refresh DOM element after 20 seconds worst case.
               await timeout(20000)
               console.log(txHash)
               web3.eth.getTransactionReceipt(txHash).then(console.log);
