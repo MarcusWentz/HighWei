@@ -27,7 +27,7 @@ GitHub pages (source): https://marcuswentz.github.io/HighWei/
 
 ## Hardware: ⚙️
 
-<img src="https://github.com/MarcusWentz/HighWei/blob/main/images/wiring.png" alt="Wiring"/>
+<img src="https://github.com/MarcusWentz/HighWei/blob/main/images/wiring2.png" alt="Wiring"/>
 
 -Raspberry Pi 4 🫐 🍓
 
