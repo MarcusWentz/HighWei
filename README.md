@@ -33,9 +33,17 @@ GitHub pages (source): https://marcuswentz.github.io/HighWei/
 
 -Ultrasonic sensor [Model: HC-SR04] (TRIGGER GPIO 18, ECHO GPIO 24)
 
--Servo motor [Model: SG90] (GPIO 22)
+-Servo motor [Model: SG90] (GPIO 22) 
 
--1k and 2k ohm resistor (voltage divider for ultrasonics)
+Note: web3.py does not have easy WSS event reading access like web3.js yet.
+Therefore, we use web3.js and pi-blaster.js for reading and controlling servo state events.
+
+[pi-blaster.js: build from source https://github.com/sarfata/pi-blaster then install https://github.com/sarfata/pi-blaster.js/]
+
+⚠️ Run the following CMD commands if your servo motor locks up with pi-blaster.js: ⚠️
+
+    cd pi-blaster
+    sudo ./pi-blaster
 
 ## Status: 👁️ 👁️
 
