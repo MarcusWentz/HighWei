@@ -53,8 +53,7 @@ if __name__ == '__main__':
             if(dist < 30 and contract_Call.functions.servoState().call() != 0):
             	closeServoGateWeb3Tx()
             	print("MOTION DETECTED! WEB3 TX SENT. WAITING 15 SECONDS FOR BLOCK TO CONFIRM BEFORE CHECKING AGAIN.")
-		time.sleep(15)
-		print("NEW STATE: " + contract_Call.functions.servoState().call())
+            	time.sleep(15)
             print ("Measured Distance = %.1f cm" % dist)
             time.sleep(1)
  
