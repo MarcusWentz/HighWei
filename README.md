@@ -33,6 +33,8 @@ GitHub pages (source): https://marcuswentz.github.io/HighWei/
 
 -Ultrasonic sensor [Model: HC-SR04] (TRIGGER GPIO 18, ECHO GPIO 24)
 
+-1k and 2k ohm resisors for ultrasonic pin voltage protection
+
 -Servo motor [Model: SG90] (GPIO 22) 
 
 Note: web3.py does not have easy WSS event reading access like web3.js yet.
