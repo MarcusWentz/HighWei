@@ -1,7 +1,7 @@
 # HighWei 🌉🚦🚚🚙🚗🛻🏎️🚓
 
-Tollbooth with ultrasonic sensors and servo motors. Chainlink node scrapes and aggregates MTA transit fee data using Adapter.js.
-Chainlink pricefeeds also used to remove need for ERC20 stablecoins. Chainlink Keepers can be used assuming large vehicles take over 15 seconds to fully cross path.
+Tollbooth with ultrasonic sensors and servo motors. Chainlink node scrapes,filters,scales and aggregates MTA toll fee data with Adapter.js.
+Chainlink pricefeeds remove need for ERC20 payments. Chainlink Keepers used to close gate [servo] 15 seconds after opened. Ultrasonic sensor sends Tx when distance under 30cm AND gate open.
 
 ## MTA Price Data and Chainlink Adapter.js Price Aggregator:
 
