@@ -42,7 +42,7 @@ Therefore, we use web3.js and pi-blaster.js for reading and controlling servo st
 
 [pi-blaster.js: build from source https://github.com/sarfata/pi-blaster then install https://github.com/sarfata/pi-blaster.js/]
 
-⚠️ Run the following CMD commands if your servo motor locks up with pi-blaster.js: ⚠️
+⚠️ Run the following CMD commands if your servo motor locks up with pi-blaster.js [or automate commands inside "vim .bashrc"]: ⚠️
 
     cd pi-blaster
     sudo ./pi-blaster
