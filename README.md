@@ -50,13 +50,4 @@ Therefore, we use web3.js and pi-blaster.js for reading and controlling servo st
 Or automate commands by inserting and writing inside shell with CMD:
 
     vim .bashrc
-      
-## Status: 👁️ 👁️
 
-### 🟡 Frontend: 🪟 
-
-🔴Verify contract with Hardhat
-https://mumbai.polygonscan.com/address/0xDA6a9bf11ab5d0F630F6c8417948B1B81E7Da94a
-
-    npx hardhat clean 
-    npx hardhat verify --network mumbai 0xDA6a9bf11ab5d0F630F6c8417948B1B81E7Da94a
