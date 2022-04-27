@@ -37,6 +37,7 @@ def distance():
     
 def closeServoGateWeb3Tx():
 	tx = {
+	    'chainId': 80001 , #MUMBAI [(EIP-155) transactions allowed over RPC error handle]
 	    'nonce':  web3.eth.getTransactionCount("0xc1202e7d42655F23097476f6D48006fE56d38d4f")       ,
 	    'to': Contract_At_Address, #WORKS WITH REGULAR WALLETS BUT CANNOT SEND TO CONTRACT FOR SOME REASON?
 	    'gas': 50000, #WORKS WITH 1000000. If not try : Remix > deploy and run transactions
