@@ -13,7 +13,7 @@ Chainlink pricefeeds also used to remove need for ERC20 stablecoins. Chainlink K
  
 🚙Cars: https://new.mta.info/fares-and-tolls/bridges-and-tunnels/tolls-by-vehicle/cars
 
-📹 Full Video Presentation: 🔴 Ultrasonic Video Demo: https://www.youtube.com/watch?v=8jDGe1ou2r0
+📹 Full Video Presentation: https://www.youtube.com/watch?v=7Tz0TTNr4fM
 
 🎁 Presentation slides: https://docs.google.com/presentation/d/1grKpwfnQWYyvnZJFkbXsvQHCDB3aD3WPl4F8A57xDPo/edit?usp=sharing
 
@@ -54,8 +54,6 @@ Or automate commands by inserting and writing inside shell with CMD:
 ## Status: 👁️ 👁️
 
 ### 🟡 Frontend: 🪟 
-
-🔴Experiment with UI/UX with website and hardware
 
 🔴Verify contract with Hardhat
 https://mumbai.polygonscan.com/address/0xDA6a9bf11ab5d0F630F6c8417948B1B81E7Da94a
