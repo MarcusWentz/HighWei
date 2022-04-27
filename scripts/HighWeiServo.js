@@ -1,5 +1,5 @@
 const Web3 = require('web3') //HIDE KEYS WITH "Linux Environment Variables" https://www.youtube.com/watch?v=himEMfYQJ1w "vim .bashrc" > "i" > update > "esc" > ":w" enter
-const rpcURL =  process.env.rinkebyWebSocketSecureEventsInfuraAPIKey //Use WSS to get live event data instead of polling constantly,
+const rpcURL =  process.env.PolygonMumbaiTestnetSubscribeAlchemyWSS //Use WSS to get live event data instead of polling constantly,
 const web3 = new Web3(rpcURL)
 const contractAddress_JS = '0xDA6a9bf11ab5d0F630F6c8417948B1B81E7Da94a'
 const contractABI_JS =
