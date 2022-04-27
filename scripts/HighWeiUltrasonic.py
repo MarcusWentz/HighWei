@@ -36,8 +36,6 @@ def distance():
     return distance
     
 def closeServoGateWeb3Tx():
-	print(contract_Call.functions.storedData().call());
-
 	tx = {
 	    'nonce':  web3.eth.getTransactionCount("0xc1202e7d42655F23097476f6D48006fE56d38d4f")       ,
 	    'to': Contract_At_Address, #WORKS WITH REGULAR WALLETS BUT CANNOT SEND TO CONTRACT FOR SOME REASON?
@@ -45,7 +43,6 @@ def closeServoGateWeb3Tx():
 	    'gasPrice': web3.toWei('20', 'gwei'), # https://etherscan.io/gastracker
     	    'data': contract_Call.encodeABI(fn_name='closeServoGate')
 	}
-	
 	signed_tx = web3.eth.account.signTransaction(tx, devTestnetPrivateKey)
 	print(web3.toHex(web3.eth.sendRawTransaction(signed_tx.rawTransaction)))
 
@@ -55,8 +52,9 @@ if __name__ == '__main__':
             dist = distance()
             if(dist < 30 and contract_Call.functions.servoState().call() != 0):
             	closeServoGateWeb3Tx()
-            	time.sleep(15)
             	print("MOTION DETECTED! WEB3 TX SENT. WAITING 15 SECONDS FOR BLOCK TO CONFIRM BEFORE CHECKING AGAIN.")
+		time.sleep(15)
+		print("NEW STATE: " + contract_Call.functions.servoState().call())
             print ("Measured Distance = %.1f cm" % dist)
             time.sleep(1)
  
