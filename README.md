@@ -13,7 +13,7 @@ Chainlink pricefeeds remove need for ERC20 payments. Chainlink Keepers used to c
  
 🚙Cars: https://new.mta.info/fares-and-tolls/bridges-and-tunnels/tolls-by-vehicle/cars
 
-📹 Full Video Presentation: https://www.youtube.com/watch?v=7Tz0TTNr4fM
+📹 Video Presentation: https://www.youtube.com/watch?v=VW8eTZeR5UQ
 
 🎁 Presentation slides: https://docs.google.com/presentation/d/1grKpwfnQWYyvnZJFkbXsvQHCDB3aD3WPl4F8A57xDPo/edit?usp=sharing
 
