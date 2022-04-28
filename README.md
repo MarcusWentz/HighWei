@@ -17,6 +17,8 @@ Chainlink pricefeeds remove need for ERC20 payments. Chainlink Keepers used to c
 
 🎁 Presentation slides: https://docs.google.com/presentation/d/1grKpwfnQWYyvnZJFkbXsvQHCDB3aD3WPl4F8A57xDPo/edit?usp=sharing
 
+💬 Presentation script: https://docs.google.com/document/d/1xou47e2uuRkUaCJxHnUU8RqjhUjnS7SlTPMjKBxHsyo/edit?usp=sharing
+
 🟦 Chainlink Keepers Log: https://keepers.chain.link/mumbai/1255
 
 🕸️ Website hosted on 
