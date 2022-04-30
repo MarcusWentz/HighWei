@@ -12,9 +12,9 @@ chai.use(require('chai-bn')(BN));
     it('Chainlink API and Prciefeed return > 0.', async () => {
       const accounts = await ethers.getSigners()
       const signer = accounts[0]
-      const highWeiContract = new ethers.Contract('0xDA6a9bf11ab5d0F630F6c8417948B1B81E7Da94a', HighWeiKeeperABI, signer)
+      const highWeiContract = new ethers.Contract('0x9a1c81fFBD62beba2084C0c9738D07e4c8896eF3', HighWeiKeeperABI, signer)
       const linkTokenContract = new ethers.Contract('0x326C977E6efc84E512bB9C30f76E30c160eD06FB', LinkTokenABI, signer)
-      const transferTransaction = await linkTokenContract.transfer('0xDA6a9bf11ab5d0F630F6c8417948B1B81E7Da94a','1000000000000000000')
+      const transferTransaction = await linkTokenContract.transfer('0x9a1c81fFBD62beba2084C0c9738D07e4c8896eF3','1000000000000000000')
       await transferTransaction.wait()
       console.log('transfer_hash:' + transferTransaction.hash)
       const apiCallTransaction = await highWeiContract.uintAdapterCall()
@@ -31,7 +31,7 @@ chai.use(require('chai-bn')(BN));
       it('Chainlink Keepers sets servo value back to 0 after one block (about 15 seconds).', async () => {
       const accounts = await ethers.getSigners()
       const signer = accounts[0]
-      const highWeiContract = new ethers.Contract('0xDA6a9bf11ab5d0F630F6c8417948B1B81E7Da94a', HighWeiKeeperABI, signer)
+      const highWeiContract = new ethers.Contract('0x9a1c81fFBD62beba2084C0c9738D07e4c8896eF3', HighWeiKeeperABI, signer)
       const resultFeeInPennies = await highWeiContract.feeInPenniesUSDinMatic()
       var openServoGateWithMATIC = await highWeiContract.openServoGate({value:resultFeeInPennies.toString()})
       await openServoGateWithMATIC.wait()
