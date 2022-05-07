@@ -13,7 +13,7 @@ contract HighWei is ChainlinkClient, KeeperCompatibleInterface {
 
   uint public timeOpened; //Storage slot 0x00, 32/32, 32 bytes bytes.
   uint public tollPennies; //Storage slot 0x01, 32/32 bytes. MTA toll for Verrazano Bridge (Truck: Two Axle) in Pennies.
-  address public Owner; // Storage slot 0x02, 20/32 , 20 bytes.
+  address public Owner; // Storage slot 0x02, 20/32 , 20 bytes. NOTE: immutable would have the slot free for uint [wastes gas converting outside uint].
   uint96 public servoState; //Storage slot 0x02, 32/32 , 12 bytes.
 
   event servoStateChange();
