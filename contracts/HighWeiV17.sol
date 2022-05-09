@@ -1,6 +1,5 @@
-
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.0;
+pragma solidity 0.8.13;
 
 import "@chainlink/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol";
 import "@chainlink/contracts/src/v0.8/ChainlinkClient.sol";
@@ -13,8 +12,7 @@ contract HighWei is ChainlinkClient, KeeperCompatibleInterface {
 
   uint public timeOpened; //Storage slot 0x00, 32/32, 32 bytes bytes.
   uint public tollPennies; //Storage slot 0x01, 32/32 bytes. MTA toll for Verrazano Bridge (Truck: Two Axle) in Pennies.
-  address public Owner; // Storage slot 0x02, 20/32 , 20 bytes. NOTE: immutable would have the slot free for uint [wastes gas converting outside uint].
-  uint96 public servoState; //Storage slot 0x02, 32/32 , 12 bytes.
+  address public immutable Owner; //Immutable variables do not take up a storage slot.
 
   event servoStateChange();
 
@@ -35,17 +33,15 @@ contract HighWei is ChainlinkClient, KeeperCompatibleInterface {
   }
 
   function openServoGate() public payable {
-      require(servoState == 0, "ALREADY_OPEN.");
+      require(timeOpened == 0, "ALREADY_OPEN.");
       require(msg.value == feeInPenniesUSDinMatic() && msg.value != 0 , "MATCH_FEE_AND_FEE_NOT_ZERO_TO_OPEN.");
-      servoState = 1;
       timeOpened = block.timestamp;
       emit servoStateChange();
       payable(Owner).transfer(address(this).balance);
   }
 
   function closeServoGate() public onlyOwner { //Called by sensors (Ultrasonic or Keepers).
-      require(servoState == 1, "ALREADY_CLOSED.");
-      servoState = 0;
+      require(timeOpened != 0, "ALREADY_CLOSED.");
       timeOpened = 0;
       emit servoStateChange();
   }
@@ -55,8 +51,7 @@ contract HighWei is ChainlinkClient, KeeperCompatibleInterface {
   } 
 
   function performUpkeep(bytes calldata) external override { 
-      servoState = 0; //Can't call closeServoGate() directly because onlyOwner will block unique Keeper addresses. 
-      timeOpened = 0;
+      timeOpened = 0; //Can't call closeServoGate() directly because onlyOwner will block unique Keeper addresses. 
       emit servoStateChange();
   }
 
@@ -73,7 +68,7 @@ contract HighWei is ChainlinkClient, KeeperCompatibleInterface {
   }
 
   function oneBlockPassedSinceOpened() public view returns(bool) {
-    return (servoState == 1 && block.timestamp >= (timeOpened + 15));
+    return (timeOpened != 0 && block.timestamp >= (timeOpened + 15));
   }
 
 }
