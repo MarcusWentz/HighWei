@@ -27,9 +27,6 @@ describe("contract HighWei tests:", function () {
         it("Owner is equal to default ethers.getSigners() address.", async function () {
               expect(await HighWeiDeployed.Owner()).to.equal(owner.address);
         });
-        it("servoState == 0", async function () {
-          expect(await HighWeiDeployed.servoState()).to.equal(0);
-        });
        });
 
       describe("openServoGate()", function () {
@@ -40,9 +37,8 @@ describe("contract HighWei tests:", function () {
           await HighWeiDeployed.uintAdapterCall()
           expect(await HighWeiDeployed.tollPennies()).to.equal(300);
           await HighWeiDeployed.connect(addr2).openServoGate({ value: ethers.utils.parseEther( ('2.1') )  })
-          expect(await HighWeiDeployed.servoState()).to.equal(1);
           const timestamp = (await provider.getBlock(0)).timestamp;
-          expect(await HighWeiDeployed.timeOpened()).to.equal(timestamp+9);
+          expect(await HighWeiDeployed.timeOpened()).to.equal(timestamp+8);
           expect(await provider.getBalance(HighWeiDeployed.address)).to.equal(0);
         });
         it("Fail if already open.", async function () {
@@ -65,7 +61,6 @@ describe("contract HighWei tests:", function () {
             expect(await HighWeiDeployed.tollPennies()).to.equal(300);
             await HighWeiDeployed.connect(addr2).openServoGate({ value: ethers.utils.parseEther( ('2.1') )  })
             await expect(HighWeiDeployed.closeServoGate())
-            expect(await HighWeiDeployed.servoState()).to.equal(0);
             expect(await HighWeiDeployed.timeOpened()).to.equal(0);
           });
       });
@@ -80,6 +75,14 @@ describe("contract HighWei tests:", function () {
       describe("oneBlockPassedSinceOpened().", function () {
          it("False on deployment.", async function () {
            expect( (await HighWeiDeployed.oneBlockPassedSinceOpened()).toString() ).to.equal('false');
+         });
+         it("True after buying and after 15 seconds.", async function () {
+           await HighWeiDeployed.uintAdapterCall()
+           expect(await HighWeiDeployed.tollPennies()).to.equal(300);
+           await HighWeiDeployed.connect(addr2).openServoGate({ value: ethers.utils.parseEther( ('2.1') )  })
+           await provider.send("evm_increaseTime", [15]);
+           await provider.send("evm_mine");
+           expect( (await HighWeiDeployed.oneBlockPassedSinceOpened()).toString() ).to.equal('true');
          });
        });
 
