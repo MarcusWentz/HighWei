@@ -23,7 +23,7 @@ Tollbooth smart contract with ultrasonic sensors and servo motors. Chainlink nod
 🚧 Verified in Hardhat using commands: 
 
       npx hardhat clean
-      npx hardhat verify --network mumbai 0x9a1c81fFBD62beba2084C0c9738D07e4c8896eF3
+      npx hardhat verify --network mumbai 0x18d5112C6602E5a4bAdFe75dA4ec223379EA2404
 
 🟦 Chainlink Keepers Log: https://keepers.chain.link/mumbai/1332
 
