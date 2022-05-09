@@ -18,8 +18,8 @@ function timeout(ms) {
 }
 
 async function checkValueLatest() { //get() contract value,
-	contractDefined_JS.methods.servoState().call((err, servoStateValue) => {
-		if(servoStateValue == 1){
+	contractDefined_JS.methods.timeOpened().call((err, servoStateValue) => {
+		if(servoStateValue != 0){
 			console.log("OPEN GATE!" )
 			piblaster.setPwm(servoAnalogPin, pulseWidthMax);
 		} else {
