@@ -27,11 +27,17 @@ Tollbooth smart contract with ultrasonic sensors and servo motors. Chainlink nod
 
 🟦 Chainlink Keepers Log: https://keepers.chain.link/mumbai/1332
 
-🕸️ Website hosted on 
+🕸️ Data hosting:
+
+Website:
 
 IPFS/Filecoin (Fleek): https://highwei.on.fleek.co/
 
 GitHub pages (source): https://marcuswentz.github.io/HighWei/
+
+Storage CID (bafybeigvfcksysrsazvghy3l3wvpho4mzacyi7ty7mwidexoacp4nplwba) logic for Adapter.js request:
+IPFS/Filecoin (Fleek): https://storageapi.fleek.co/marcuswentz-team-bucket/webScrapeMTAChainlinkRequest.js
+CID Logic Updates Custom Adapter.js Contract: https://mumbai.polygonscan.com/address/0x1f421dB9C6A1F8B0f48AfDCDd9031e5EA9593E50#code
 
 ## Hardware: ⚙️
 
