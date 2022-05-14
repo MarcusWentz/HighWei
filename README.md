@@ -37,7 +37,7 @@ GitHub pages (source): https://marcuswentz.github.io/HighWei/
 
 IPFS Storage CID (bafybeigvfcksysrsazvghy3l3wvpho4mzacyi7ty7mwidexoacp4nplwba) logic for Adapter.js request 
 
-⚠️do not wrap quotes around the Javascript code, use raw code ⚠️:
+⚠️ Do not wrap quotes around the Javascript code for IPFS storage file, use raw code ⚠️
 
 https://storageapi.fleek.co/marcuswentz-team-bucket/webScrapeMTAChainlinkRequest.js
 
