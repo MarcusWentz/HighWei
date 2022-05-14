@@ -35,7 +35,7 @@ IPFS/Filecoin (Fleek): https://highwei.on.fleek.co/
 
 GitHub pages (source): https://marcuswentz.github.io/HighWei/
 
-IPFS Storage CID (bafybeigvfcksysrsazvghy3l3wvpho4mzacyi7ty7mwidexoacp4nplwba) logic for Adapter.js request with Fleek
+IPFS Storage CID (bafybeigvfcksysrsazvghy3l3wvpho4mzacyi7ty7mwidexoacp4nplwba) logic for Adapter.js request with Fleek:
 
 ⚠️ Do not wrap quotes around the Javascript code for IPFS storage file, use raw code ⚠️
 
