@@ -2,6 +2,8 @@
 
 Tollbooth smart contract with ultrasonic sensors and servo motors. Chainlink node scrapes,filters,scales and aggregates MTA toll fee data with Adapter.js. Chainlink pricefeeds remove need for ERC20 payments. Chainlink Keepers used to close gate [servo] 15 seconds after opened. Ultrasonic sensor sends closeServoGate() Tx with web3.py when distance under 30cm AND gate open.
 
+<img src="https://github.com/MarcusWentz/HighWei/blob/main/images/overview.png" alt="Overview"/>
+
 ## MTA Price Data and Chainlink Adapter.js Price Aggregator:
 
 💲MTA toll website being XPATH scraped (with Puppeteer https://www.npmjs.com/package/puppeteer) inside Chainlink Adapter.js oracle
