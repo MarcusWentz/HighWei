@@ -33,11 +33,11 @@ Tollbooth smart contract with ultrasonic sensors and servo motors. Chainlink nod
 
 ⚠️ Do not wrap quotes around the Javascript code for IPFS storage file, use raw code ⚠️
 
-https://storageapi.fleek.co/marcuswentz-team-bucket/webScrapeMTAChainlinkRequest.js
-
 IPFS Gateway CID path: https://ipfs.io/ipfs/bafybeigvfcksysrsazvghy3l3wvpho4mzacyi7ty7mwidexoacp4nplwba
 
-CID Logic Updates Custom Adapter.js Contract: https://mumbai.polygonscan.com/address/0x1f421dB9C6A1F8B0f48AfDCDd9031e5EA9593E50#code
+Original storage storage URL (Fleek): https://storageapi.fleek.co/marcuswentz-team-bucket/webScrapeMTAChainlinkRequest.js
+
+CID Logic Updates Custom Adapter.js Contract: https://mumbai.polygonscan.com/address/0x1f421dB9C6A1F8B0f48AfDCDd9031e5EA9593E50#code#F1#L20
 
 🕸️ Website:
 
