@@ -20,24 +20,15 @@ Tollbooth smart contract with ultrasonic sensors and servo motors. Chainlink nod
 
 💬 Presentation script: https://docs.google.com/document/d/1xou47e2uuRkUaCJxHnUU8RqjhUjnS7SlTPMjKBxHsyo/edit?usp=sharing
 
-🔭 Verified contract on Etherscan [pick one compiler version in contract to avoid potential issue with bytecode differences]: https://mumbai.polygonscan.com/address/0x18d5112c6602e5a4badfe75da4ec223379ea2404#code
-
 🚧 Verified in Hardhat using commands: 
-
-      npx hardhat clean
-      npx hardhat verify --network mumbai 0x18d5112C6602E5a4bAdFe75dA4ec223379EA2404
-
-🟦 Chainlink Keepers Log: https://keepers.chain.link/mumbai/1332
+```
+npx hardhat clean
+npx hardhat verify --network <network_name> <contract_address>
+```
 
 📬 IPFS Storage CID (bafybeigvfcksysrsazvghy3l3wvpho4mzacyi7ty7mwidexoacp4nplwba) logic for Adapter.js request with Fleek:
 
-⚠️ Do not wrap quotes around the Javascript code for IPFS storage file, use raw code ⚠️
-
-IPFS Gateway CID path: https://ipfs.io/ipfs/bafybeigvfcksysrsazvghy3l3wvpho4mzacyi7ty7mwidexoacp4nplwba
-
 Original storage storage URL (Fleek): https://storageapi.fleek.co/marcuswentz-team-bucket/webScrapeMTAChainlinkRequest.js
-
-CID Logic Updates Custom Adapter.js Contract: https://mumbai.polygonscan.com/address/0x1f421dB9C6A1F8B0f48AfDCDd9031e5EA9593E50#code#F1#L20
 
 🕸️ Website:
 
@@ -63,11 +54,11 @@ Therefore, we use web3.js and pi-blaster.js for reading and controlling servo st
 [pi-blaster.js: build from source https://github.com/sarfata/pi-blaster then install https://github.com/sarfata/pi-blaster.js/]
 
 ⚠️ Run the following CMD commands if your servo motor locks up with pi-blaster.js ⚠️
-
-    cd pi-blaster
-    sudo ./pi-blaster
-
+```
+cd pi-blaster
+sudo ./pi-blaster
+```
 Or automate commands by inserting and writing inside shell with CMD:
-
-    vim .bashrc
-
+```
+vim .bashrc
+```
