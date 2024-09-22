@@ -4,6 +4,20 @@ Tollbooth smart contract with ultrasonic sensors and servo motors. Chainlink nod
 
 <img src="https://github.com/MarcusWentz/HighWei/blob/main/images/overview.png" alt="Overview"/>
 
+## Chainlink Functions Notice
+
+This project was originally created using the Universal Adapter. 
+Web scraping was used to get MTA toll booth data on chain with certain npm libraries. 
+
+Though it might be possible to do this with Chainlink Functions, it is recommended to use JSON API URLs instead,
+since the MTA toll booth data web pages have been reformatted multiple times with different XPATH routes, breaking web scraping.
+
+There are some APIs that might have similar data, but require a private secret API key.
+
+However, Chainlink Functions scripts with API keys and other private secrets are not fully tested and secure yet since it is in Beta:
+
+https://docs.chain.link/chainlink-functions/service-responsibility#secrets
+
 ## MTA Price Data and Chainlink Adapter.js Price Aggregator:
 
 💲MTA toll website being XPATH scraped (with Puppeteer https://www.npmjs.com/package/puppeteer) inside Chainlink Adapter.js oracle
