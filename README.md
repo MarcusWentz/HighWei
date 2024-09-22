@@ -4,7 +4,7 @@ Tollbooth smart contract with ultrasonic sensors and servo motors. Chainlink nod
 
 <img src="https://github.com/MarcusWentz/HighWei/blob/main/images/overview.png" alt="Overview"/>
 
-## Chainlink Functions Notice
+## 🔴 Chainlink Functions Notice 🔴
 
 This project was originally created using the Universal Adapter. 
 Web scraping was used to get MTA toll booth data on chain with certain npm libraries. 
